@@ -1,0 +1,20 @@
+{
+  "name": "CookBuk",
+  "version": "1.0.0",
+  "description": "Recipe &amp; Pantry Inventory Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathanong12/CookBuk.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nathanong12/CookBuk/issues"
+  },
+  "homepage": "https://github.com/nathanong12/CookBuk#readme"
+}
