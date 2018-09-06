@@ -1,11 +1,14 @@
 import React from 'react';
 import $ from 'jquery';
-import Recipe from './Recipe.jsx'
+import Recipe from 'components/Recipe.jsx'
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      recipes: [],
       recipe: '',
+      recipeInput: '',
       ingredients: [],
       steps: []
     };
