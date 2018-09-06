@@ -39,8 +39,7 @@ class App extends React.Component {
         <input type="button" value="Add Step"/><br/><br/>
         <input type="button" value="Submit Recipe"/>
       </form>
-      <div>
+      </div>
       );
   }
-
 }
