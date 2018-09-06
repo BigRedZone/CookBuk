@@ -4,17 +4,39 @@
   "description": "Recipe &amp; Pantry Inventory Application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "react-dev": "webpack -d --watch",
+    "server-dev": "nodemon server/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nathanong12/CookBuk.git"
+    "url": "git+https://github.com/tae-lim/CookBuk.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nathanong12/CookBuk/issues"
+    "url": "https://github.com/tae-lim/CookBuk/issues"
   },
-  "homepage": "https://github.com/nathanong12/CookBuk#readme"
+  "homepage": "https://github.com/tae-lim/CookBuk#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.3",
+    "jquery": "^3.3.1",
+    "mongoose": "^5.2.13",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "webpack": "^4.17.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.7"
+  }
 }
