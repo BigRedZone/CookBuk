@@ -14,6 +14,10 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount() {
+
+  }
+
   getRecipe() {
 
   }
@@ -40,7 +44,7 @@ class App extends React.Component {
           <input type="button" value="Submit Recipe"/>
         </form>
       </div>
-    );
+    )
   }
 }
 
