@@ -1,6 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
-
+import Recipe from './Recipe.jsx'
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -16,7 +16,7 @@ class App extends React.Component {
   }
 
   addRecipe() {
-    
+
   }
 
   render() {
