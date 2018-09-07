@@ -12,8 +12,8 @@ class Steps extends React.Component {
     }
     this.clickNext = this.clickNext.bind(this);
     this.clickPrev = this.clickPrev.bind(this);
-    this.clickFirst = this.clickNext.bind(this);
-    this.clickLast = this.clickNext.bind(this);
+    this.clickFirst = this.clickFirst.bind(this);
+    this.clickLast = this.clickLast.bind(this);
   }
 
   clickNext() {
