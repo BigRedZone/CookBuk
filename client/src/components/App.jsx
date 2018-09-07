@@ -123,9 +123,7 @@ class App extends React.Component {
   }
 
 
-  // this.setState(prevState => ({
-  //   arrayvar: [...prevState.arrayvar, newelement]
-  // }))
+
 
   
   addRecipeName() {
@@ -135,22 +133,29 @@ class App extends React.Component {
 
 
   addIngredients() {
-    //need to push ingredient to this.state.ingredients
+    this.setState({
+      ingredients: this.state.ingredients.concat(this.state.ingredient)
+    })
+    console.log(this.state.ingredients);
   }
   addSteps() {
     //sets state of current Step.
   }
 
+  // this.setState({ 
+  //   arrayvar: this.state.arrayvar.concat([newelement])
+  // })
+
   setIngredient(e) {
     this.setState({
-      ingredient: e.target.value
+      ingredient: [e.target.value]
     });
     console.log('currentIngredient: ' , this.state.ingredient);
   }
 
   setStep(e) {
     this.setState({
-      step: e.target.value
+      step: [e.target.value]
     });
     console.log('currentStep: ' , this.state.step);
   }
