@@ -1,5 +1,6 @@
 import React from 'react';
-
+import EditDeleteRecipe from './EditDeleteRecipe.jsx';
+import Steps from './Steps.jsx';
 //testing testing 123
 
 class Recipe extends React.Component {
@@ -15,23 +16,30 @@ class Recipe extends React.Component {
 
   clickEdit() {
     this.setState({
-      editClicked: true
+      editClicked: !this.state.editClicked
     });
     this.render();
   }
 
   clickStart() {
     this.setState({
-      startClicked: true
+      startClicked: !this.state.startClicked
     });
     this.render();
   }
 
   render() {
     if (this.state.startClicked) {
-      return (<Steps recipe={this.props.recipe} clickExit={this.clickStart}/>);
+      return (<Steps 
+        recipe={this.props.recipe} 
+        clickExit={this.clickStart}
+        />);
     } else if (this.state.editClicked) {
-      return (<EditDeleteRecipe recipe={this.props.recipe} clickSubmit={this.clickEdit}/>);
+      return (<EditDeleteRecipe 
+        recipe={this.props.recipe} 
+        clickSubmit={this.clickEdit} 
+        update={this.props.update}
+        delete={this.props.delete}/>);
     } else {
       return (
         <div>
@@ -49,8 +57,8 @@ class Recipe extends React.Component {
             <p>xxx mins</p>
           </div>
           <div>
-            <button onClick={() => this.onStart()}>Start</button><br/><br/>
-            <button onClick={() => this.onEdit()}>Edit</button>
+            <button onClick={() => this.clickStart()}>Start</button><br/><br/>
+            <button onClick={() => this.clickEdit()}>Edit</button>
           </div>
         </div>
       );
