@@ -17,7 +17,6 @@ class Steps extends React.Component {
   }
 
   clickNext() {
-    console.log(this.props.recipe.steps.length);
     if (this.state.currentStep === this.props.recipe.steps.length - 1) {
       this.setState({
         currentStep: this.props.recipe.steps.length - 1
@@ -62,7 +61,7 @@ class Steps extends React.Component {
           <h2>Step {this.state.currentStep + 1}:</h2>
           {this.props.recipe.steps.map((step, i) => {
             if (this.state.currentStep === i) {
-              return (<p>{step}</p>);
+              return (<p key={i}>{step}</p>);
             }
           })}
         </div>
@@ -70,7 +69,7 @@ class Steps extends React.Component {
         <button onClick={this.clickPrev}>Prev.</button>
         <button onClick={this.clickNext}>Next</button>
         <button onClick={this.clickLast}>Last</button>
-        <a href="/recipe">Exit</a>
+        <a href="/">Exit</a>
       </div>
     )
   }
