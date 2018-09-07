@@ -100,7 +100,15 @@ class App extends React.Component {
     console.log('Delete Cliked');
   }
 
+  deleteRecipe() {
+    
+  }
+
   editRecipeHandler() {
+
+  }
+
+  deleteRecipe() {
 
   }
 
