@@ -7,13 +7,13 @@ class App extends React.Component {
     super(props);
     this.state = {
       recipes: ['Spaggheti', 'Cereal', 'Korean BBQ', 'Sushi'],
-      recipe: { name: Spaghetti,
+      recipe: { name: 'Spaghetti',
         ingredients: ['Linguini', 'Pasta Sauce', 'Ground Beef'],
         steps: ['Add water to a pot', 'Heat pot until boiling', 'Add Linguini', 'Stir for 20 minutes', 'Drain water', 'Add Pasta Sauce', 'Add Ground Beef', 'Stir'],
         cookTime: '21 minutes',
         prepTime: '10 minutes'
       },
-      recipeInput: { name: Cereal,
+      recipeInput: { name: 'Cereal',
         ingredients: ['Milk', 'Cereal'],
         steps: ['Add milk to bowl, add Cereal to bowl'],
         cookTime: '2 minutes',
@@ -22,6 +22,8 @@ class App extends React.Component {
     }
     this.setRecipes = this.setRecipes.bind(this);
     this.setRecipe = this.setRecipe.bind(this);
+    this.updateRecipe = this.updateRecipe.bind(this);
+    this.deleteRecipe = this.deleteRecipe.bind(this);
   }
   
   //Initialize
@@ -131,9 +133,11 @@ class App extends React.Component {
             <input type="button" value="Submit Recipe"/>
           </form>
         </div>
-        {/* <Recipe/>
-        <EditDeleteRecipe/> <- I think Vang needs to pass down to Ong}
-        <Steps/> */}
+        <Recipe 
+          update={this.updateRecipe}
+          delete={this.deleteRecipe}
+          recipe={this.state.recipe}
+        />
       </div>
     )
   }
