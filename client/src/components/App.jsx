@@ -34,6 +34,7 @@ class App extends React.Component {
     this.setCookTime = this.setCookTime.bind(this);
     this.setIngredient = this.setIngredient.bind(this);
     this.setStep = this.setStep.bind(this);
+    this.addIngredient = this.addIngredient.bind(this);
   }
   
   //Initialize
@@ -130,34 +131,35 @@ class App extends React.Component {
 
   }
 
-
-
-  addIngredients() {
-    this.setState({
-      ingredients: this.state.ingredients.concat(this.state.ingredient)
-    })
-    console.log(this.state.ingredients);
-  }
-  addSteps() {
-    //sets state of current Step.
-  }
-
-  // this.setState({ 
-  //   arrayvar: this.state.arrayvar.concat([newelement])
-  // })
-
   setIngredient(e) {
     this.setState({
-      ingredient: [e.target.value]
+      ingredient: e.target.value
     });
     console.log('currentIngredient: ' , this.state.ingredient);
   }
 
   setStep(e) {
     this.setState({
-      step: [e.target.value]
+      step: e.target.value
     });
     console.log('currentStep: ' , this.state.step);
+  }
+
+
+
+
+  // this.setState({ 
+  //   arrayvar: this.state.arrayvar.concat([newelement])
+  // })
+
+  addIngredient() {
+    this.setState({
+      ingredients: [...this.state.ingredients, this.state.ingredient]
+    })
+  }
+
+  addSteps() {
+    //sets state of current Step.
   }
 
   render() {
@@ -178,7 +180,7 @@ class App extends React.Component {
             Cook Time: <input type="text" onChange={(e) => {this.setCookTime(e)}}/><br/><br/>
             Prep Time: <input type="text" onChange={(e) => {this.setPrepTime(e)}}/><br/><br/>
             Add Ingredient: <input type="text" onChange={this.setIngredient}/><br/><br/>
-            <input type="button" value="Add Ingredient" onClick={() => {console.log(this.state.ingredient)}}/><br/><br/>
+            <input type="button" value="Add Ingredient" onClick={this.addIngredient}/><br/><br/>
             Add Steps: <input type="text" onChange={this.setStep}/><br/><br/>
             <input type="button" value="Add Step" onClick={() => {console.log(this.state.step)}}/><br/><br/>
             
