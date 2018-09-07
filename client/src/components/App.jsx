@@ -25,12 +25,12 @@ class App extends React.Component {
     this.updateRecipe = this.updateRecipe.bind(this);
     this.deleteRecipe = this.deleteRecipe.bind(this);
   }
-  
+
   //Initialize
   componentDidMount() {
     this.getRecipes();
   }
-  
+
   //GET requests
   getRecipes() {
     this.fetch('/homepage', this.setRecipes);
@@ -47,15 +47,15 @@ class App extends React.Component {
     });
   }
 
-    this.setState({
   setRecipe(data) {
+    this.setState({
       recipe: data
     });
     //componentReceivedData
       //invoke getIngredients
       //invoke getSteps
   }
-  
+
   //AJAX GET Request
   fetch(url, callback) {
     $.ajax({
@@ -103,7 +103,7 @@ class App extends React.Component {
   }
 
   deleteRecipe() {
-    
+
   }
 
   editRecipeHandler() {
@@ -133,7 +133,7 @@ class App extends React.Component {
             <input type="button" value="Submit Recipe"/>
           </form>
         </div>
-        <Recipe 
+        <Recipe
           update={this.updateRecipe}
           delete={this.deleteRecipe}
           recipe={this.state.recipe}
