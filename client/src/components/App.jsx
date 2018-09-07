@@ -1,20 +1,24 @@
 import React from 'react';
 import $ from 'jquery';
 import Recipe from '../components/Recipe.jsx';
-import EditDeleteRecipe from '../components/EditDeleteRecipe.jsx';
-import Steps from '../components/Steps.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       recipes: ['Spaggheti', 'Cereal', 'Korean BBQ', 'Sushi'],
-      recipe: 'Spaggheti',
-      ingredients: ['Linguini', 'Pasta Sauce', 'Ground Beef'],
-      steps: ['Add water to a pot', 'Heat pot until boiling', 'Add Linguini', 'Stir for 20 minutes', 'Drain water', 'Add Pasta Sauce', 'Add Ground Beef', 'Stir'],
-      recipeInput: '',
-      cookTime: '21 minutes',
-      prepTime: '10 minutes'
+      recipe: { name: Spaghetti,
+        ingredients: ['Linguini', 'Pasta Sauce', 'Ground Beef'],
+        steps: ['Add water to a pot', 'Heat pot until boiling', 'Add Linguini', 'Stir for 20 minutes', 'Drain water', 'Add Pasta Sauce', 'Add Ground Beef', 'Stir'],
+        cookTime: '21 minutes',
+        prepTime: '10 minutes'
+      },
+      recipeInput: { name: Cereal,
+        ingredients: ['Milk', 'Cereal'],
+        steps: ['Add milk to bowl, add Cereal to bowl'],
+        cookTime: '2 minutes',
+        prepTime: '2 minutes'
+      },
     }
     this.setRecipes = this.setRecipes.bind(this);
     this.setRecipe = this.setRecipe.bind(this);
@@ -27,7 +31,7 @@ class App extends React.Component {
   
   //GET requests
   getRecipes() {
-    this.fetch('/home', this.setRecipes);
+    this.fetch('/homepage', this.setRecipes);
   }
 
   getRecipe() {
