@@ -17,10 +17,11 @@ const EditDeleteRecipe = (props) => {
   // submitHandler needs to originate in the App component in order to pass data back to App
   let editedRecipe = {
     name: $('#recipeName').val(),
-    ingredients: $('#ingredientsInput').val().join(', '),
-    steps: $('#prepTimeInput').val().join(', '),
+    ingredients: $('#ingredientsInput').val(),
+    steps: $('#prepTimeInput').val(),
     cookTime: $('#cookTimeInput').val(),
-    prepTime: $('#servingsInput').val()
+    prepTime: $('#prepTimeInput').val(),
+    servings: $('#servingsInput').val()
   }
 
   return (
@@ -30,13 +31,15 @@ const EditDeleteRecipe = (props) => {
       <div>
         <h4>Recipe Overview</h4>
         <h3>This Recipe Includes...</h3>
-        <input type="text" id="ingredientsInput" value={props.recipe.ingredients}/>
+        <textarea type="text" id="ingredientsInput" rows="10" cols="20" value={props.recipe.ingredients.join(', ')}/>
         <h3>Prep Time</h3>
         <input type="text" id="prepTimeInput" value={props.recipe.prepTime}/>
         <h3>Cook Time</h3>
         <input type="text" id="cookTimeInput" value={props.recipe.cookTime}/>
         <h3>Servings</h3>
         <input type="text" id="servingsInput" value={props.recipe.servings}/>
+        <h3>Steps</h3>
+        <textarea type="text" rows="10" cols="20" id="stepsInput" value={props.recipe.steps.join(', ')}/>
       </div>
       <div>
         <button id="submitChanges" onClick={() => submitClickHandler()}>Submit Changes</button>
