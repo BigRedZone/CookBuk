@@ -47,8 +47,8 @@ class App extends React.Component {
     });
   }
 
-    this.setState({
   setRecipe(data) {
+    this.setState({
       recipe: data
     });
     //componentReceivedData
