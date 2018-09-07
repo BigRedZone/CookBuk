@@ -30,6 +30,10 @@ class App extends React.Component {
 
   }
 
+  deleteRecipe() {
+
+  }
+
   render() {
     return (
       <div>
