@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/BigRedZone/CookBuk#readme",
   "dependencies": {
+    "artyom.js": "^1.0.6",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
