@@ -23,6 +23,8 @@ class App extends React.Component {
     }
     this.setRecipes = this.setRecipes.bind(this);
     this.setRecipe = this.setRecipe.bind(this);
+    this.updateRecipe = this.updateRecipe.bind(this);
+    this.deleteRecipe = this.deleteRecipe.bind(this);
   }
 
   //Initialize
@@ -132,9 +134,11 @@ class App extends React.Component {
             <input type="button" value="Submit Recipe"/>
           </form>
         </div>
-        {/* <Recipe/>
-        <EditDeleteRecipe/> <- I think Vang needs to pass down to Ong}
-        <Steps/> */}
+        <Recipe
+          update={this.updateRecipe}
+          delete={this.deleteRecipe}
+          recipe={this.state.recipe}
+        />
       </div>
     )
   }
