@@ -27,6 +27,10 @@ class App extends React.Component {
   }
 
   deleteRecipe() {
+    
+  }
+
+  editRecipeHandler() {
 
   }
 
