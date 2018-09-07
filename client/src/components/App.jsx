@@ -28,8 +28,8 @@ class App extends React.Component {
     }
     this.setRecipes = this.setRecipes.bind(this);
     this.setRecipe = this.setRecipe.bind(this);
-    this.updateRecipe = this.updateRecipe.bind(this);
-    this.deleteRecipe = this.deleteRecipe.bind(this);
+    // this.updateRecipe = this.updateRecipe.bind(this);
+    // this.deleteRecipe = this.deleteRecipe.bind(this);
     this.setPrepTime = this.setPrepTime.bind(this);
     this.setCookTime = this.setCookTime.bind(this);
     this.setIngredient = this.setIngredient.bind(this);
@@ -118,29 +118,20 @@ class App extends React.Component {
     
   }
 
-  updateRecipe() {
-    console.log('Edit Clicked');
-  }
-
-  deleteRecipe() {
-    console.log('Delete Cliked');
-  }
-
-  editRecipeHandler() {
-    
-  }
-
-  //     ingredient: '',
-  //     ingredients: [],
-  //     step: '',
-  //     steps: [],
-  //     cookTime: '',
-  //     prepTime: '',
-
   addRecipeName() {
 
   }
+
+
+  // this.setState(prevState => ({
+  //   arrayvar: [...prevState.arrayvar, newelement]
+  // }))
+
   
+  addRecipeName() {
+
+  }
+
 
 
   addIngredients() {
@@ -154,7 +145,7 @@ class App extends React.Component {
     this.setState({
       ingredient: e.target.value
     });
-    console.log('currentIngredient: ' , this.state.cookTime);
+    console.log('currentIngredient: ' , this.state.ingredient);
   }
 
   setStep(e) {
@@ -181,11 +172,10 @@ class App extends React.Component {
             Recipe Name: <input type="text"/><br/><br/>
             Cook Time: <input type="text" onChange={(e) => {this.setCookTime(e)}}/><br/><br/>
             Prep Time: <input type="text" onChange={(e) => {this.setPrepTime(e)}}/><br/><br/>
-            
-            Add Ingredient: <input type="text"/><br/><br/>
-            <input type="button" value="Add Ingredient"/><br/><br/>
-            Add Steps: <input type="text"/><br/><br/>
-            <input type="button" value="Add Step" /><br/><br/>
+            Add Ingredient: <input type="text" onChange={this.setIngredient}/><br/><br/>
+            <input type="button" value="Add Ingredient" onClick={() => {console.log(this.state.ingredient)}}/><br/><br/>
+            Add Steps: <input type="text" onChange={this.setStep}/><br/><br/>
+            <input type="button" value="Add Step" onClick={() => {console.log(this.state.step)}}/><br/><br/>
             
             <input type="button" value="Submit Recipe" onClick={(e) => {console.log('submit works')}}/>
           </form>
