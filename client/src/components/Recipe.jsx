@@ -37,9 +37,7 @@ class Recipe extends React.Component {
     } else if (this.state.editClicked) {
       return (<EditDeleteRecipe 
         recipe={this.props.recipe} 
-        clickSubmit={this.clickEdit} 
-        update={this.props.update}
-        delete={this.props.delete}/>);
+        clickSubmit={this.clickEdit}/>);
     } else {
       return (
         <div>
