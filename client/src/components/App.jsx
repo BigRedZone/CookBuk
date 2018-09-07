@@ -34,7 +34,8 @@ class App extends React.Component {
     this.setCookTime = this.setCookTime.bind(this);
     this.setIngredient = this.setIngredient.bind(this);
     this.setStep = this.setStep.bind(this);
-    this.addIngredient = this.addIngredient.bind(this);
+    this.setIngredients = this.setIngredients.bind(this);
+    this.setSteps = this.setSteps.bind(this);
   }
   
   //Initialize
@@ -145,21 +146,17 @@ class App extends React.Component {
     console.log('currentStep: ' , this.state.step);
   }
 
-
-
-
-  // this.setState({ 
-  //   arrayvar: this.state.arrayvar.concat([newelement])
-  // })
-
-  addIngredient() {
+  setIngredients() {
     this.setState({
       ingredients: [...this.state.ingredients, this.state.ingredient]
     })
   }
 
-  addSteps() {
-    //sets state of current Step.
+  setSteps() {
+    this.setState({
+      steps: [...this.state.steps, this.state.step]
+    })
+    console.log(this.state.steps);
   }
 
   render() {
@@ -179,10 +176,12 @@ class App extends React.Component {
             Recipe Name: <input type="text"/><br/><br/>
             Cook Time: <input type="text" onChange={(e) => {this.setCookTime(e)}}/><br/><br/>
             Prep Time: <input type="text" onChange={(e) => {this.setPrepTime(e)}}/><br/><br/>
+
             Add Ingredient: <input type="text" onChange={this.setIngredient}/><br/><br/>
-            <input type="button" value="Add Ingredient" onClick={this.addIngredient}/><br/><br/>
+            <input type="button" value="Add Ingredient" onClick={this.setIngredients}/><br/><br/>
+
             Add Steps: <input type="text" onChange={this.setStep}/><br/><br/>
-            <input type="button" value="Add Step" onClick={() => {console.log(this.state.step)}}/><br/><br/>
+            <input type="button" value="Add Step" onClick={this.setSteps}/><br/><br/>
             
             <input type="button" value="Submit Recipe" onClick={(e) => {console.log('submit works')}}/>
           </form>
