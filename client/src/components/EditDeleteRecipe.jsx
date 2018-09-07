@@ -46,4 +46,7 @@ const EditDeleteRecipe = (props) => {
   )
 }
 
+
 export default EditDeleteRecipe;
+
+        //updateRecipe exists in the App component and it should take in two parameters: an identifer (name), and the object editedRecipe. props.clickSubmit
