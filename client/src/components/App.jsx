@@ -6,8 +6,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      recipes: ['Spaggheti', 'Cereal', 'Korean BBQ', 'Sushi'],
-      recipe: { name: 'Spaghetti',
+      recipes: ['Spaghetti', 'Cereal', 'Korean BBQ', 'Sushi'],
+      recipe: {
+        name: 'Spaghetti',
         ingredients: ['Linguini', 'Pasta Sauce', 'Ground Beef'],
         steps: ['Add water to a pot', 'Heat pot until boiling', 'Add Linguini', 'Stir for 20 minutes', 'Drain water', 'Add Pasta Sauce', 'Add Ground Beef', 'Stir'],
         cookTime: '21 minutes',
@@ -25,12 +26,12 @@ class App extends React.Component {
     this.updateRecipe = this.updateRecipe.bind(this);
     this.deleteRecipe = this.deleteRecipe.bind(this);
   }
-  
+
   //Initialize
   componentDidMount() {
     this.getRecipes();
   }
-  
+
   //GET requests
   getRecipes() {
     this.fetch('/homepage', this.setRecipes);
@@ -47,15 +48,15 @@ class App extends React.Component {
     });
   }
 
-    this.setState({
   setRecipe(data) {
+    this.setState({
       recipe: data
     });
     //componentReceivedData
       //invoke getIngredients
       //invoke getSteps
   }
-  
+
   //AJAX GET Request
   fetch(url, callback) {
     $.ajax({
@@ -103,7 +104,7 @@ class App extends React.Component {
   }
 
   deleteRecipe() {
-    
+
   }
 
   editRecipeHandler() {
@@ -133,7 +134,7 @@ class App extends React.Component {
             <input type="button" value="Submit Recipe"/>
           </form>
         </div>
-        <Recipe 
+        <Recipe
           update={this.updateRecipe}
           delete={this.deleteRecipe}
           recipe={this.state.recipe}
