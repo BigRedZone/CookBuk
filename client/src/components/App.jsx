@@ -13,12 +13,6 @@ class App extends React.Component {
         cookTime: '21 minutes',
         prepTime: '10 minutes'
       },
-      recipeInput: { name: 'Cereal',
-        ingredients: ['Milk', 'Cereal'],
-        steps: ['Add milk to bowl, add Cereal to bowl'],
-        cookTime: '2 minutes',
-        prepTime: '2 minutes'
-      },
       name: '',
       ingredients: [],
       steps: [],
@@ -29,15 +23,15 @@ class App extends React.Component {
     }
     this.setRecipes = this.setRecipes.bind(this);
     this.setRecipe = this.setRecipe.bind(this);
-    // this.updateRecipe = this.updateRecipe.bind(this);
-    // this.deleteRecipe = this.deleteRecipe.bind(this);
-    this.setPrepTime = this.setPrepTime.bind(this);
-    this.setCookTime = this.setCookTime.bind(this);
-    this.setIngredient = this.setIngredient.bind(this);
-    this.setStep = this.setStep.bind(this);
+    this.setName = this.setName.bind(this);
     this.setIngredients = this.setIngredients.bind(this);
     this.setSteps = this.setSteps.bind(this);
-    this.setName = this.setName.bind(this);
+    this.setCookTime = this.setCookTime.bind(this);
+    this.setPrepTime = this.setPrepTime.bind(this);
+    this.setIngredient = this.setIngredient.bind(this);
+    this.setStep = this.setStep.bind(this);
+    this.submitRecipe = this.submitRecipe.bind(this);
+    this.post = this.post.bind(this);
   }
   
   //Initialize
@@ -71,28 +65,24 @@ class App extends React.Component {
     this.setState({
       name: e.target.value
     })
-    console.log('name', this.state.name);
   }
 
   setCookTime(e) {
     this.setState({
       cookTime: e.target.value
     });
-    console.log('cooktime: ' , this.state.cookTime);
   }
 
   setPrepTime(e) {
     this.setState({
       prepTime: e.target.value
     });
-    console.log('prepTime: ' , this.state.prepTime);
   }
 
   setIngredient(e) {
     this.setState({
       ingredient: e.target.value
     });
-    console.log('currentIngredient: ' , this.state.ingredient);
   }
 
   setIngredients() {
@@ -105,14 +95,12 @@ class App extends React.Component {
     this.setState({
       step: e.target.value
     });
-    console.log('currentStep: ' , this.state.step);
   }
 
   setSteps() {
     this.setState({
       steps: [...this.state.steps, this.state.step]
     })
-    console.log(this.state.steps);
   }
 
   //AJAX GET Request
@@ -130,6 +118,17 @@ class App extends React.Component {
     });
   }
 
+  submitRecipe() {
+    let recipe = {
+      name: this.state.name,
+      ingredients: this.state.ingredients,
+      steps: this.state.steps,
+      cookTime: this.state.cookTime,
+      prepTime: this.state.prepTime
+    }
+    this.post('/recipe', recipe);
+  }
+
   //AJAX POST Request
   post(url, data) {
     $.ajax({
@@ -138,34 +137,12 @@ class App extends React.Component {
       data: data
     })
     .done(() => {
-      console.log(`Succesful Post to Server for ${callback}`)
-    });
+      console.log('POST Request: Successful');
+    })
+    .fail(() => {
+      console.log('POST Request: Failed');
+    })
   }
-
-  setRecipeInput() {
-    
-  }
-
-  addRecipeName() {
-
-  }
-
-  // recipeInput: { name: 'Cereal',
-  //       ingredients: ['Milk', 'Cereal'],
-  //       steps: ['Add milk to bowl, add Cereal to bowl'],
-  //       cookTime: '2 minutes',
-  //       prepTime: '2 minutes'
-  //     },
-
-  // submitRecipe() {
-  //   let recipe = {
-  //     name: this.name,
-  //     ingredients: this.ingredients,
-  //     steps: this.steps,
-  //     cookTime: this.cookTime,
-
-  //   }
-  // }
 
   render() {
     return (
@@ -195,8 +172,6 @@ class App extends React.Component {
           </form>
         </div>
         <Recipe 
-          update={this.updateRecipe}
-          delete={this.deleteRecipe}
           recipe={this.state.recipe}
         />
       </div>
