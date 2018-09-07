@@ -19,12 +19,13 @@ class App extends React.Component {
         cookTime: '2 minutes',
         prepTime: '2 minutes'
       },
-      ingredient: '',
+      name: '',
       ingredients: [],
-      step: '',
       steps: [],
       cookTime: '',
       prepTime: '',
+      ingredient: '',
+      step: '',
     }
     this.setRecipes = this.setRecipes.bind(this);
     this.setRecipe = this.setRecipe.bind(this);
@@ -36,6 +37,7 @@ class App extends React.Component {
     this.setStep = this.setStep.bind(this);
     this.setIngredients = this.setIngredients.bind(this);
     this.setSteps = this.setSteps.bind(this);
+    this.setName = this.setName.bind(this);
   }
   
   //Initialize
@@ -63,14 +65,18 @@ class App extends React.Component {
     this.setState({
       recipe: data
     });
-    //componentReceivedData
-      //invoke getIngredients
-      //invoke getSteps
+  }
+
+  setName(e) {
+    this.setState({
+      name: e.target.value
+    })
+    console.log('name', this.state.name);
   }
 
   setCookTime(e) {
     this.setState({
-      cookTime: event.target.value
+      cookTime: e.target.value
     });
     console.log('cooktime: ' , this.state.cookTime);
   }
@@ -80,6 +86,33 @@ class App extends React.Component {
       prepTime: e.target.value
     });
     console.log('prepTime: ' , this.state.prepTime);
+  }
+
+  setIngredient(e) {
+    this.setState({
+      ingredient: e.target.value
+    });
+    console.log('currentIngredient: ' , this.state.ingredient);
+  }
+
+  setIngredients() {
+    this.setState({
+      ingredients: [...this.state.ingredients, this.state.ingredient]
+    })
+  }
+
+  setStep(e) {
+    this.setState({
+      step: e.target.value
+    });
+    console.log('currentStep: ' , this.state.step);
+  }
+
+  setSteps() {
+    this.setState({
+      steps: [...this.state.steps, this.state.step]
+    })
+    console.log(this.state.steps);
   }
 
   //AJAX GET Request
@@ -97,14 +130,7 @@ class App extends React.Component {
     });
   }
 
-  // getIngredients(data) {
-
-  // }
-
-  // getSteps(data) {
-
-  // }
-
+  //AJAX POST Request
   post(url, data) {
     $.ajax({
       type: 'POST',
@@ -116,7 +142,7 @@ class App extends React.Component {
     });
   }
 
-  addRecipe() {
+  setRecipeInput() {
     
   }
 
@@ -124,40 +150,22 @@ class App extends React.Component {
 
   }
 
+  // recipeInput: { name: 'Cereal',
+  //       ingredients: ['Milk', 'Cereal'],
+  //       steps: ['Add milk to bowl, add Cereal to bowl'],
+  //       cookTime: '2 minutes',
+  //       prepTime: '2 minutes'
+  //     },
 
+  // submitRecipe() {
+  //   let recipe = {
+  //     name: this.name,
+  //     ingredients: this.ingredients,
+  //     steps: this.steps,
+  //     cookTime: this.cookTime,
 
-
-  
-  addRecipeName() {
-
-  }
-
-  setIngredient(e) {
-    this.setState({
-      ingredient: e.target.value
-    });
-    console.log('currentIngredient: ' , this.state.ingredient);
-  }
-
-  setStep(e) {
-    this.setState({
-      step: e.target.value
-    });
-    console.log('currentStep: ' , this.state.step);
-  }
-
-  setIngredients() {
-    this.setState({
-      ingredients: [...this.state.ingredients, this.state.ingredient]
-    })
-  }
-
-  setSteps() {
-    this.setState({
-      steps: [...this.state.steps, this.state.step]
-    })
-    console.log(this.state.steps);
-  }
+  //   }
+  // }
 
   render() {
     return (
@@ -173,7 +181,7 @@ class App extends React.Component {
             <option>placeholder 3</option> */}
           </select>
           <form>
-            Recipe Name: <input type="text"/><br/><br/>
+            Recipe Name: <input type="text" onChange={(e)=> {this.setName(e)}}/><br/><br/>
             Cook Time: <input type="text" onChange={(e) => {this.setCookTime(e)}}/><br/><br/>
             Prep Time: <input type="text" onChange={(e) => {this.setPrepTime(e)}}/><br/><br/>
 
@@ -183,7 +191,7 @@ class App extends React.Component {
             Add Steps: <input type="text" onChange={this.setStep}/><br/><br/>
             <input type="button" value="Add Step" onClick={this.setSteps}/><br/><br/>
             
-            <input type="button" value="Submit Recipe" onClick={(e) => {console.log('submit works')}}/>
+            <input type="button" value="Submit Recipe" onClick={this.submitRecipe}/>
           </form>
         </div>
         <Recipe 
