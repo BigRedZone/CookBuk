@@ -154,14 +154,6 @@ class App extends React.Component {
       <div>
         <div>
           <h1>CookBük</h1>
-          <select>
-            {this.state.recipes.map((recipe) => {
-              <option>recipe</option>
-            })}
-            {/* <option>placeholder 1</option>
-            <option>placeholder 2</option>
-            <option>placeholder 3</option> */}
-          </select>
           <form>
             Recipe Name: <input type="text" onChange={(e)=> {this.setName(e)}}/><br/><br/>
             Cook Time: <input type="text" onChange={(e) => {this.setCookTime(e)}}/><br/><br/>
@@ -185,3 +177,11 @@ class App extends React.Component {
 }
 
 export default App;
+
+{/* <select>
+            {this.state.recipes.map((recipe) => {
+              <option>recipe</option>
+            })}
+            /* <option>placeholder 1</option>
+            <option>placeholder 2</option>
+          <option>placeholder 3</option> */}
