@@ -6,8 +6,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      recipes: ['Spaggheti', 'Cereal', 'Korean BBQ', 'Sushi'],
-      recipe: { name: 'Spaghetti',
+      recipes: ['Spaghetti', 'Cereal', 'Korean BBQ', 'Sushi'],
+      recipe: {
+        name: 'Spaghetti',
         ingredients: ['Linguini', 'Pasta Sauce', 'Ground Beef'],
         steps: ['Add water to a pot', 'Heat pot until boiling', 'Add Linguini', 'Stir for 20 minutes', 'Drain water', 'Add Pasta Sauce', 'Add Ground Beef', 'Stir'],
         cookTime: '21 minutes',
@@ -33,12 +34,12 @@ class App extends React.Component {
     this.submitRecipe = this.submitRecipe.bind(this);
     this.post = this.post.bind(this);
   }
-  
+
   //Initialize
   componentDidMount() {
     this.getRecipes();
   }
-  
+
   //GET requests
   getRecipes() {
     this.fetch('/homepage', this.setRecipes);
@@ -142,6 +143,10 @@ class App extends React.Component {
     .fail(() => {
       console.log('POST Request: Failed');
     })
+  }
+
+  deleteRecipe() {
+
   }
 
   render() {
