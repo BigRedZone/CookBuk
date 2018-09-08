@@ -20,6 +20,7 @@ class EditDeleteRecipe extends React.Component {
     this.prepTimeHandler = this.prepTimeHandler.bind(this);
     this.cookTimeHandler = this.cookTimeHandler.bind(this);
     this.submitClickHandler = this.submitClickHandler.bind(this);
+    this.deleteHandler = this.deleteHandler.bind(this);
   }
 
   updateRecipe (recipeName, editedRecipe) {
@@ -129,7 +130,7 @@ class EditDeleteRecipe extends React.Component {
         <div>
           <button id="submitChanges" onClick={() => this.submitClickHandler()}>Submit Changes</button>
         </div>
-        <a onClick={() => deleteHandler()}>Delete Recipe</a>
+        <a onClick={() => this.deleteHandler()}>Delete Recipe</a>
       </div>
     )
   }
