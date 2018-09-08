@@ -13,7 +13,13 @@ class EditDeleteRecipe extends React.Component {
       prepTime: this.props.recipe.prepTime,
       servings: this.props.recipe.servings
     };
-    this.changeHandler = this.changeHandler.bind(this)
+    this.nameHandler = this.nameHandler.bind(this);
+    this.stepsHandler = this.stepsHandler.bind(this);
+    this.ingredientsHandler = this.ingredientsHandler.bind(this);
+    this.servingsHandler = this.servingsHandler.bind(this);
+    this.prepTimeHandler = this.prepTimeHandler.bind(this);
+    this.cookTimeHandler = this.cookTimeHandler.bind(this);
+    this.submitClickHandler = this.submitClickHandler.bind(this);
   }
 
   updateRecipe (recipeName, editedRecipe) {
@@ -56,19 +62,13 @@ class EditDeleteRecipe extends React.Component {
       console.log(`Deleted ${this.props.recipe.name}!`);
     }
   }
-  submitClickHandler () {
-    // var editedRecipe = {
-    //   name: $('#recipeName').val(),
-    //   ingredients: $('#ingredientsInput').val(),
-    //   steps: $('#prepTimeInput').val(),
-    //   cookTime: $('#cookTimeInput').val(),
-    //   prepTime: $('#prepTimeInput').val(),
-    //   servings: $('#servingsInput').val()
-    // }
-    // console.log(editedRecipe)
+  submitClickHandler() {
+    console.log('old name: ', this.props.recipe.name)
+    console.log('new name: ', this.state.name)
+    console.log(this.state)
 
     // this.props.update(this.props.recipe.name, editedRecipe);
-    // this.props.clickSubmit();
+    this.props.clickSubmit();
   }
   // submitHandler needs to originate in the App component in order to pass data back to App
   nameHandler(event) {
@@ -84,15 +84,27 @@ class EditDeleteRecipe extends React.Component {
     })
   }
 
-  ingredientsHandler(event) {
+  prepTimeHandler(event) {
     this.setState({
-      ingredients: event
+      prepTime: event
     })
   }
 
-  ingredientsHandler(event) {
+  servingsHandler(event) {
     this.setState({
-      ingredients: event
+      servings: event
+    })
+  }
+
+  stepsHandler(event) {
+    this.setState({
+      steps: event
+    })
+  }
+
+  cookTimeHandler(event) {
+    this.setState({
+     cookTime: event
     })
   }
 
@@ -104,18 +116,18 @@ class EditDeleteRecipe extends React.Component {
         <div>
           <h4>Recipe Overview</h4>
           <h3>This Recipe Includes...</h3>
-          <textarea type="text" id="ingredientsInput" rows="10" cols="35" value={this.state.ingredients}/>
+          <textarea type="text" id="ingredientsInput" rows="10" cols="35" onChange={(e) => this.ingredientsHandler(e.target.value)} value={this.state.ingredients}/>
           <h3>Prep Time</h3>
-          <input type="text" id="prepTimeInput" value={this.state.prepTime}/>
+          <input type="text" id="prepTimeInput" onChange={(e) => this.prepTimeHandler(e.target.value)} value={this.state.prepTime}/>
           <h3>Cook Time</h3>
-          <input type="text" id="cookTimeInput" value={this.state.cookTime}/>
+          <input type="text" id="cookTimeInput" onChange={(e) => this.cookTimeHandler(e.target.value)} value={this.state.cookTime}/>
           <h3>Servings</h3>
-          <input type="text" id="servingsInput" value={this.state.servings}/>
+          <input type="text" id="servingsInput" onChange={(e) => this.servingsHandler(e.target.value)} value={this.state.servings}/>
           <h3>Steps</h3>
-          <textarea type="text" rows="10" cols="35" id="stepsInput" value={this.state.steps}/>
+          <textarea type="text" rows="10" cols="35" id="stepsInput" onChange={(e) => this.stepsHandler(e.target.value)} value={this.state.steps}/>
         </div>
         <div>
-          <button id="submitChanges" onClick={() => submitClickHandler()}>Submit Changes</button>
+          <button id="submitChanges" onClick={() => this.submitClickHandler()}>Submit Changes</button>
         </div>
         <a onClick={() => deleteHandler()}>Delete Recipe</a>
       </div>
