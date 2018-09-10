@@ -1,66 +1,70 @@
 import React from 'react';
 import $ from 'jquery';
-import Recipe from '../components/Recipe.jsx';
+// import Recipe from '../components/Recipe.jsx';
 
-class App extends React.Component {
+class AddRecipe extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      recipes: ['Spaghetti', 'Cereal', 'Korean BBQ', 'Sushi'],
-      recipe: {
-        name: 'Spaghetti',
-        ingredients: ['Linguini', 'Pasta Sauce', 'Ground Beef'],
-        steps: ['Add water to a pot', 'Heat pot until boiling', 'Add Linguini', 'Stir for 20 minutes', 'Drain water', 'Add Pasta Sauce', 'Add Ground Beef', 'Stir'],
-        cookTime: '21 minutes',
-        prepTime: '10 minutes'
-      },
+      // recipes: ['Spaghetti', 'Cereal', 'Korean BBQ', 'Sushi'],
+      // recipe: {
+      //   name: 'Spaghetti',
+      //   ingredients: ['Linguini', 'Pasta Sauce', 'Ground Beef'],
+      //   steps: ['Add water to a pot', 'Heat pot until boiling', 'Add Linguini', 'Stir for 20 minutes', 'Drain water', 'Add Pasta Sauce', 'Add Ground Beef', 'Stir'],
+      //   cookTime: '21 minutes',
+      //   prepTime: '10 minutes',
+      //   servings: '2 servings'
+      // },
       name: '',
       ingredients: [],
       steps: [],
       cookTime: '',
       prepTime: '',
+      servings: '',
       ingredient: '',
       step: '',
+      servings: '',
     }
-    this.setRecipes = this.setRecipes.bind(this);
-    this.setRecipe = this.setRecipe.bind(this);
+    //this.setRecipes = this.setRecipes.bind(this);
+    //this.setRecipe = this.setRecipe.bind(this);
     this.setName = this.setName.bind(this);
     this.setIngredients = this.setIngredients.bind(this);
     this.setSteps = this.setSteps.bind(this);
     this.setCookTime = this.setCookTime.bind(this);
     this.setPrepTime = this.setPrepTime.bind(this);
+    this.setServings = this.setServings.bind(this);
     this.setIngredient = this.setIngredient.bind(this);
     this.setStep = this.setStep.bind(this);
     this.submitRecipe = this.submitRecipe.bind(this);
     this.post = this.post.bind(this);
   }
 
-  //Initialize
+  // Initialize
   componentDidMount() {
     this.getRecipes();
   }
 
-  //GET requests
-  getRecipes() {
-    this.fetch('/homepage', this.setRecipes);
-  }
+  // GET requests
+  // getRecipes() {
+  //   this.fetch('/homepage', this.setRecipes);
+  // }
 
-  getRecipe() {
-    this.fetch('/recipe', this.setRecipe);
-  }
+  // getRecipe() {
+  //   this.fetch('/recipe', this.setRecipe);
+  // }
 
   //Set States
-  setRecipes(data) {
-    this.setState({
-      recipes: data
-    });
-  }
+  // setRecipes(data) {
+  //   this.setState({
+  //     recipes: data
+  //   });
+  // }
 
-  setRecipe(data) {
-    this.setState({
-      recipe: data
-    });
-  }
+  // setRecipe(data) {
+  //   this.setState({
+  //     recipe: data
+  //   });
+  // }
 
   setName(e) {
     this.setState({
@@ -78,6 +82,12 @@ class App extends React.Component {
     this.setState({
       prepTime: e.target.value
     });
+  }
+
+  setServings(e) {
+    this.setState({
+      servings: e.target.value
+    })
   }
 
   setIngredient(e) {
@@ -125,7 +135,8 @@ class App extends React.Component {
       ingredients: this.state.ingredients,
       steps: this.state.steps,
       cookTime: this.state.cookTime,
-      prepTime: this.state.prepTime
+      prepTime: this.state.prepTime,
+      servings: this.state.servings
     }
     this.post('/recipe', recipe);
   }
@@ -145,10 +156,6 @@ class App extends React.Component {
     })
   }
 
-  deleteRecipe() {
-
-  }
-
   render() {
     return (
       <div>
@@ -158,6 +165,7 @@ class App extends React.Component {
             Recipe Name: <input type="text" onChange={(e)=> {this.setName(e)}}/><br/><br/>
             Cook Time: <input type="text" onChange={(e) => {this.setCookTime(e)}}/><br/><br/>
             Prep Time: <input type="text" onChange={(e) => {this.setPrepTime(e)}}/><br/><br/>
+            Servings: <input type="text" onChange={(e) => {this.setServings(e)}}/><br/><br/>
 
             Add Ingredient: <input type="text" onChange={this.setIngredient}/><br/><br/>
             <input type="button" value="Add Ingredient" onClick={this.setIngredients}/><br/><br/>
@@ -176,12 +184,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
-
-{/* <select>
-            {this.state.recipes.map((recipe) => {
-              <option>recipe</option>
-            })}
-            /* <option>placeholder 1</option>
-            <option>placeholder 2</option>
-          <option>placeholder 3</option> */}
+export default AddRecipe;
