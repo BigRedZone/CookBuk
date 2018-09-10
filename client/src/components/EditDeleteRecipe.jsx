@@ -46,7 +46,7 @@ class EditDeleteRecipe extends React.Component {
     // console.log(targetRecipe);
     $.ajax({
       type: 'Delete',
-      url: 'http://localhost:3000/delete',
+      url: 'http://localhost:3000/delete'
     })
     .done((data) => {
       console.log('DELETE request data returned: ', data)
