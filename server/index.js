@@ -31,7 +31,8 @@ app.post('/recipe', (req, res) => {
 });
 
 app.put('/edit', (req, res) => {
-  db.Recipe.findOneAndUpdate(/*conditions, update*/)
+  console.log(req.body)
+  db.Recipe.findOneAndUpdate({name: req.body.name}, req.body.change)
     .then(() => {
       console.log('put request successful!')
       res.end(/*Render entire database back to App*/)
