@@ -41,7 +41,7 @@ class AddRecipe extends React.Component {
 
   // Initialize
   componentDidMount() {
-    this.getRecipes();
+    // this.getRecipes();
   }
 
   // GET requests
@@ -176,9 +176,7 @@ class AddRecipe extends React.Component {
             <input type="button" value="Submit Recipe" onClick={this.submitRecipe}/>
           </form>
         </div>
-        <Recipe 
-          recipe={this.state.recipe}
-        />
+
       </div>
     )
   }
