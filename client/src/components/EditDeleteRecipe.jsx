@@ -43,10 +43,10 @@ class EditDeleteRecipe extends React.Component {
   }
 
   deleteRecipe (targetRecipe) {
-    // console.log(targetRecipe);
     $.ajax({
       type: 'Delete',
-      url: 'http://localhost:3000/delete'
+      url: 'http://localhost:3000/delete',
+      data: {name: targetRecipe}
     })
     .done((data) => {
       console.log('DELETE request data returned: ', data)
@@ -61,6 +61,7 @@ class EditDeleteRecipe extends React.Component {
   //delete handler needs to originate in the App component in order to pass data about component from here to App
   deleteHandler () {
     if (confirm('Are you sure you want to delete this recipe?')) {
+      this.deleteRecipe(this.props.recipe.name)
       console.log(`Deleted ${this.props.recipe.name}!`);
     }
   }
