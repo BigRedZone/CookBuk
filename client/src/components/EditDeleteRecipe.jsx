@@ -24,14 +24,8 @@ class EditDeleteRecipe extends React.Component {
     this.updateRecipe = this.updateRecipe.bind(this);
   }
 
-<<<<<<< HEAD
-  updateRecipe (targetRecipe, editedRecipe) {
-    // update('/edit', newData, function(err, result) {
-    console.log('Update recipe targetRecipe: ',targetRecipe);
-    // })
-=======
   updateRecipe (recipeName, editedRecipe) {
->>>>>>> Successfully delete recipe targeted by name
+
     $.ajax({
       type: 'PUT',
       url: 'http://localhost:3000/edit',
@@ -68,9 +62,6 @@ class EditDeleteRecipe extends React.Component {
     }
   }
   submitClickHandler() {
-    // console.log('old name: ', this.props.recipe.name)
-    // console.log('new name: ', this.state.name)
-    // console.log(this.state)
 
     this.updateRecipe(this.props.recipe.name, this.state);
     this.props.clickSubmit();
