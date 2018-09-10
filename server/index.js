@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 const bodyParser = require('body-parser');
 
-const db = require('../database/index');
+const db = require('../database/index.js');
 
 
 app.use(bodyParser.json());
@@ -26,7 +26,7 @@ app.get('/homepage', (req, res) => {
 });
 
 app.post('/recipe', (req, res) => {
-  db.save();
+  db.save(req.body);
   res.end('POST request initiated!');
 });
 
