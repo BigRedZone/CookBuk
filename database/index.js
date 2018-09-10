@@ -13,24 +13,22 @@ const recipeSchema = mongoose.Schema({
 
 const Recipe = mongoose.model('Recipe', recipeSchema);
 
-const save = (recipe) => {
+Recipe.save = (recipe) => {
   let newRecipe = new Recipe({
-    name: 'test name',
-    ingredients: 'test ingredients',
-    steps: 'test steps',
-    prepTime: 'test prepTime',
-    cookTime: 'test cookTime',
-    servings: 'test servings'
+    name: recipe.name,
+    ingredients: recipe.ingredients,
+    steps: recipe.steps,
+    prepTime: recipe.prepTime,
+    cookTime: recipe.cookTime,
+    servings: recipe.servings
   });
-
   newRecipe.save((err, recipe) => {
     if (err) {
-      console.log(err);
+      console.log('Unable to save recipe to db');
     } else {
-      console.log('database connected');
+      console.log('Recipe saved to db!');
     }
   });
 }
 
-module.exports.Recipe = Recipe;
-module.exports.save = save;
+module.exports = Recipe;
