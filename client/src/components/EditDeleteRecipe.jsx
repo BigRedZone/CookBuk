@@ -24,10 +24,14 @@ class EditDeleteRecipe extends React.Component {
     this.updateRecipe = this.updateRecipe.bind(this);
   }
 
+<<<<<<< HEAD
   updateRecipe (targetRecipe, editedRecipe) {
     // update('/edit', newData, function(err, result) {
     console.log('Update recipe targetRecipe: ',targetRecipe);
     // })
+=======
+  updateRecipe (recipeName, editedRecipe) {
+>>>>>>> Successfully delete recipe targeted by name
     $.ajax({
       type: 'PUT',
       url: 'http://localhost:3000/edit',
@@ -57,8 +61,6 @@ class EditDeleteRecipe extends React.Component {
     })
   }
 
-
-  //delete handler needs to originate in the App component in order to pass data about component from here to App
   deleteHandler () {
     if (confirm('Are you sure you want to delete this recipe?')) {
       this.deleteRecipe(this.props.recipe.name)
@@ -73,9 +75,8 @@ class EditDeleteRecipe extends React.Component {
     this.updateRecipe(this.props.recipe.name, this.state);
     this.props.clickSubmit();
   }
-  // submitHandler needs to originate in the App component in order to pass data back to App
+
   nameHandler(event) {
-    // console.log(event)
     this.setState({
       name: event
     })
@@ -141,4 +142,3 @@ class EditDeleteRecipe extends React.Component {
 
 export default EditDeleteRecipe;
 
-        //updateRecipe exists in the App component and it should take in two parameters: an identifer (name), and the object editedRecipe. props.clickSubmit
