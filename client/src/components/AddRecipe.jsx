@@ -35,6 +35,8 @@ class AddRecipe extends React.Component {
     this.setServings = this.setServings.bind(this);
     this.setIngredient = this.setIngredient.bind(this);
     this.setStep = this.setStep.bind(this);
+    this.undoIngredients = this.undoIngredients.bind(this);
+    this.undoSteps = this.undoSteps.bind(this);
     this.submitRecipe = this.submitRecipe.bind(this);
     this.post = this.post.bind(this);
   }
@@ -129,6 +131,20 @@ class AddRecipe extends React.Component {
     });
   }
 
+  undoIngredients() {
+    let ingredients = this.state.ingredients;
+    this.setState({
+      ingredients: ingredients
+    })
+  }
+
+  undoSteps() {
+    let steps = this.state.steps;
+    this.setState({
+      steps: steps
+    })
+  }
+
   submitRecipe() {
     let recipe = {
       name: this.state.name,
@@ -176,7 +192,30 @@ class AddRecipe extends React.Component {
             <input type="button" value="Submit Recipe" onClick={this.submitRecipe}/>
           </form>
         </div>
-
+        <div>
+          Recipe Name: {this.state.name}
+          Cook Time: {this.state.cookTime}
+          Prep Time: {this.state.prepTime}
+          Servings: {this.state.servings}
+          Ingredients: 
+          <ul>
+            {this.state.ingredients.map((ingredient) => {
+              return (
+                <li>{ingredient}</li>
+              )
+            })}
+          </ul>
+          <button onClick={this.undoIngredients}>Undo</button>
+          Steps:
+          <ol>
+            {this.state.steps.map((step) => {
+              return (
+                <li>{step}</li>
+              )
+            })}
+          </ol>
+          <button onClick={this.undoSteps}>Undo</button>
+        </div>
       </div>
     )
   }
