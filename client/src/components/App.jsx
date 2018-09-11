@@ -3,55 +3,48 @@ import $ from 'jquery';
 
 import AddRecipe from './AddRecipe.jsx';
 import Recipe from './Recipe.jsx';
+import Selection from './Selection.jsx';
+
+import sample from '../../../util/sampleData.js'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      select: false,
-      add: false,
+      view: '',
       recipeOTD: {},
-      recipe: {
-        name: 'Spaghetti',
-        ingredients: ['Linguini', 'Pasta Sauce', 'Ground Beef'],
-        steps: ['Add water to a pot', 'Heat pot until boiling', 'Add Linguini', 'Stir for 20 minutes', 'Drain water', 'Add Pasta Sauce', 'Add Ground Beef', 'Stir'],
-        cookTime: '21 minutes',
-        prepTime: '10 minutes',
-        servings: '2 servings'
-      }
+      recipe: {},
+      recipes: sample
     };
 
     this.renderComponent = this.renderComponent.bind(this);
+    this.changeView = this.changeView.bind(this);
     this.selectRecipe = this.selectRecipe.bind(this);
-    this.addRecipe = this.addRecipe.bind(this);
   }
 
-  selectRecipe() {
+  changeView(view) {
     this.setState({
-      select: !this.state.select
+      view: view
     });
   }
 
-  addRecipe() {
+  selectRecipe(recipe) {
     this.setState({
-      add: !this.state.add
+      recipe: recipe
     });
+    this.changeView('overview');
   }
 
   renderComponent() {
-    if (this.state.select) {
+    if (this.state.view === 'overview') {
       return <Recipe recipe={this.state.recipe}/>
-    } else if (this.state.add) {
+    } else if (this.state.view === 'add') {
       return <AddRecipe/>
     } else {
-      //Tae your component goes here
       return (
         <div>
-          <h1 onClick={() => this.selectRecipe()}>{this.state.recipe.name}</h1>
-          <span>{this.state.recipe.prepTime}</span>
-          <span>{this.state.recipe.cookTime}</span>
-          <span>{this.state.recipe.servings}</span>
+          <Selection selectRecipe={this.selectRecipe} recipes={this.state.recipes}/>
         </div>);
     }
   }
@@ -63,8 +56,8 @@ class App extends React.Component {
         Some Freaking Awesome Scrolling Thingy
         </div>
         <ul>
-          <li><a>Home</a></li>
-          <li><a onClick={() => this.addRecipe()}>Create</a></li>
+          <li><a onClick={() => this.changeView('')}>Home</a></li>
+          <li><a onClick={() => this.changeView('add')}>Create</a></li>
           <li><a>Logout</a></li>
         </ul>
         <div>
