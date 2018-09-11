@@ -7,34 +7,25 @@ class Recipe extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      editClicked: false,
-      startClicked: false
+      view: ''
     };
-    this.clickEdit = this.clickEdit.bind(this);
-    this.clickStart = this.clickStart.bind(this);
+    this.changeView = this.changeView.bind(this);
   }
 
-  clickEdit() {
+  changeView(view) {
     this.setState({
-      editClicked: !this.state.editClicked
-    });
-    this.render();
-  }
-
-  clickStart() {
-    this.setState({
-      startClicked: !this.state.startClicked
+      view: view
     });
     this.render();
   }
 
   render() {
-    if (this.state.startClicked) {
+    if (this.state.view === 'steps') {
       return (<Steps 
         recipe={this.props.recipe} 
         clickExit={this.clickStart}
         />);
-    } else if (this.state.editClicked) {
+    } else if (this.state.view === 'edit') {
       return (<EditDeleteRecipe 
         recipe={this.props.recipe} 
         clickSubmit={this.clickEdit}/>);
@@ -42,7 +33,7 @@ class Recipe extends React.Component {
       return (
         <div>
           <h3>CookBuk</h3>
-          <h1>Recipe Name Field</h1>
+          <h1>{this.props.recipe.name}</h1>
           <div>
             <h4>Recipe Overview</h4>
             <h3>This Recipe Includes...</h3>
@@ -55,8 +46,8 @@ class Recipe extends React.Component {
             <p>xxx mins</p>
           </div>
           <div>
-            <button onClick={() => this.clickStart()}>Start</button><br/><br/>
-            <button onClick={() => this.clickEdit()}>Edit</button>
+            <button onClick={() => this.changeView('steps')}>Start</button><br/><br/>
+            <button onClick={() => this.changeView('edit')}>Edit</button>
           </div>
         </div>
       );
