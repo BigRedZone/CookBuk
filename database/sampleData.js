@@ -31,7 +31,7 @@ const sampleData = [
 
 const insertSampleRecipes = function() {
   sampleData.forEach(recipe => {
-    db.save(recipe);
+    db.create(recipe);
   });
 };
 
