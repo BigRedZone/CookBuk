@@ -5,6 +5,8 @@ import AddRecipe from './AddRecipe.jsx';
 import Recipe from './Recipe.jsx';
 import Selection from './Selection.jsx';
 
+import sample from '../../../util/sampleData.js'
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -20,40 +22,7 @@ class App extends React.Component {
         prepTime: '10 minutes',
         servings: '2 servings'
       },
-      recipes: [
-      {
-        name: 'Spaghetti',
-        ingredients: ['Linguini', 'Pasta Sauce', 'Ground Beef'],
-        steps: ['Add water to a pot', 'Heat pot until boiling', 'Add Linguini', 'Stir for 20 minutes', 'Drain water', 'Add Pasta Sauce', 'Add Ground Beef', 'Stir'],
-        cookTime: '21 minutes',
-        prepTime: '10 minutes',
-        servings: '2 servings'
-      },
-      {
-        name: 'Spaghetti',
-        ingredients: ['Linguini', 'Pasta Sauce', 'Ground Beef'],
-        steps: ['Add water to a pot', 'Heat pot until boiling', 'Add Linguini', 'Stir for 20 minutes', 'Drain water', 'Add Pasta Sauce', 'Add Ground Beef', 'Stir'],
-        cookTime: '21 minutes',
-        prepTime: '10 minutes',
-        servings: '2 servings'
-      },
-      {
-        name: 'Spaghetti',
-        ingredients: ['Linguini', 'Pasta Sauce', 'Ground Beef'],
-        steps: ['Add water to a pot', 'Heat pot until boiling', 'Add Linguini', 'Stir for 20 minutes', 'Drain water', 'Add Pasta Sauce', 'Add Ground Beef', 'Stir'],
-        cookTime: '21 minutes',
-        prepTime: '10 minutes',
-        servings: '2 servings'
-      },
-      {
-        name: 'Spaghetti',
-        ingredients: ['Linguini', 'Pasta Sauce', 'Ground Beef'],
-        steps: ['Add water to a pot', 'Heat pot until boiling', 'Add Linguini', 'Stir for 20 minutes', 'Drain water', 'Add Pasta Sauce', 'Add Ground Beef', 'Stir'],
-        cookTime: '21 minutes',
-        prepTime: '10 minutes',
-        servings: '2 servings'
-      }
-      ]
+      recipes: sample
     };
 
     this.renderComponent = this.renderComponent.bind(this);
