@@ -6,7 +6,7 @@ const Selection = (props) => {
       {
         props.recipes.map((recipe) => 
           <div>
-          <h1 onClick={() => props.changeView('overview')}>{recipe.name}</h1>
+          <h1 onClick={() => props.selectRecipe(recipe)}>{recipe.name}</h1>
           <span>{recipe.prepTime}</span>
           <span>{recipe.cookTime}</span>
           <span>{recipe.servings}</span>

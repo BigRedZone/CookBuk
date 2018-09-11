@@ -14,25 +14,26 @@ class App extends React.Component {
     this.state = {
       view: '',
       recipeOTD: {},
-      recipe: {
-        name: 'Spaghetti',
-        ingredients: ['Linguini', 'Pasta Sauce', 'Ground Beef'],
-        steps: ['Add water to a pot', 'Heat pot until boiling', 'Add Linguini', 'Stir for 20 minutes', 'Drain water', 'Add Pasta Sauce', 'Add Ground Beef', 'Stir'],
-        cookTime: '21 minutes',
-        prepTime: '10 minutes',
-        servings: '2 servings'
-      },
+      recipe: {},
       recipes: sample
     };
 
     this.renderComponent = this.renderComponent.bind(this);
     this.changeView = this.changeView.bind(this);
+    this.selectRecipe = this.selectRecipe.bind(this);
   }
 
   changeView(view) {
     this.setState({
       view: view
     });
+  }
+
+  selectRecipe(recipe) {
+    this.setState({
+      recipe: recipe
+    });
+    this.changeView('overview');
   }
 
   renderComponent() {
@@ -43,7 +44,7 @@ class App extends React.Component {
     } else {
       return (
         <div>
-          <Selection changeView={this.changeView} recipes={this.state.recipes}/>
+          <Selection selectRecipe={this.selectRecipe} recipes={this.state.recipes}/>
         </div>);
     }
   }
