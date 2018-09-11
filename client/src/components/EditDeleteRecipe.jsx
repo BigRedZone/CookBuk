@@ -103,6 +103,11 @@ class EditDeleteRecipe extends React.Component {
     })
   }
 
+  handleCancelClick() {
+    this.setState(this.props.recipe)
+    this.props.changeView('')
+  }
+
   render() {
     return (
       <div>
@@ -123,6 +128,9 @@ class EditDeleteRecipe extends React.Component {
         </div>
         <div>
           <button id="submitChanges" onClick={() => this.submitClickHandler()}>Submit Changes</button>
+        </div>
+        <div>
+          <button id="cancelChanges" onClick={() => this.handleCancelClick()}>Cancel Changes</button>
         </div>
         <a onClick={() => this.deleteHandler()}>Delete Recipe</a>
       </div>
