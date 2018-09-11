@@ -16,7 +16,7 @@ class SignIn extends React.Component{
 	  'width': 250,
 	  'height': 50,
 	  'longtitle': true,
-	  'theme': 'dark',
+	  'theme': 'light',
 	  'onsuccess': this.onSignIn
 	});
   }
