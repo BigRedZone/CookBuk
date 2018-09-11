@@ -132,16 +132,16 @@ class AddRecipe extends React.Component {
   }
 
   undoIngredients() {
-    let ingredients = this.state.ingredients;
+    let newIngredients = this.state.ingredients.slice(0, -1);
     this.setState({
-      ingredients: ingredients
+      ingredients: newIngredients
     })
   }
 
   undoSteps() {
-    let steps = this.state.steps;
+    let newSteps = this.state.steps.slice(0, -1);
     this.setState({
-      steps: steps
+      steps: newSteps
     })
   }
 
@@ -193,10 +193,10 @@ class AddRecipe extends React.Component {
           </form>
         </div>
         <div>
-          Recipe Name: {this.state.name}
-          Cook Time: {this.state.cookTime}
-          Prep Time: {this.state.prepTime}
-          Servings: {this.state.servings}
+          Recipe Name: {this.state.name}<br></br>
+          Cook Time: {this.state.cookTime}<br></br>
+          Prep Time: {this.state.prepTime}<br></br>
+          Servings: {this.state.servings}<br></br>
           Ingredients: 
           <ul>
             {this.state.ingredients.map((ingredient) => {
@@ -204,8 +204,8 @@ class AddRecipe extends React.Component {
                 <li>{ingredient}</li>
               )
             })}
-          </ul>
-          <button onClick={this.undoIngredients}>Undo</button>
+          </ul><br></br>
+          <button onClick={this.undoIngredients}>Undo</button><br></br>
           Steps:
           <ol>
             {this.state.steps.map((step) => {
@@ -213,7 +213,7 @@ class AddRecipe extends React.Component {
                 <li>{step}</li>
               )
             })}
-          </ol>
+          </ol><br></br>
           <button onClick={this.undoSteps}>Undo</button>
         </div>
       </div>
