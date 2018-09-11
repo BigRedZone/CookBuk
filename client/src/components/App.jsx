@@ -43,6 +43,7 @@ class App extends React.Component {
     this.setState({
       fullName: fullName
     })
+    this.changeView('selection')
     console.log(this.state.fullName);
   }
 
@@ -54,10 +55,7 @@ class App extends React.Component {
     } else if (this.state.view === 'add') {
       return <AddRecipe/>
     } else {
-      return (
-        <div>
-          <Selection selectRecipe={this.selectRecipe} recipes={this.state.recipes} user={this.state.fullName}/>
-        </div>);
+      return <Selection selectRecipe={this.selectRecipe} recipes={this.state.recipes} user={this.state.fullName}/>
     }
   }
 
