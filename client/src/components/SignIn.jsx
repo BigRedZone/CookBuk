@@ -7,7 +7,6 @@ class SignIn extends React.Component{
   constructor(props){
 	super(props);
 	this.onSignIn = this.onSignIn.bind(this)
-	console.log(props);
   }
 
   componentDidMount() {

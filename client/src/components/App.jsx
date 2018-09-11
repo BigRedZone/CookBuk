@@ -56,7 +56,7 @@ class App extends React.Component {
     } else {
       return (
         <div>
-          <Selection selectRecipe={this.selectRecipe} recipes={this.state.recipes}/>
+          <Selection selectRecipe={this.selectRecipe} recipes={this.state.recipes} user={this.state.fullName}/>
         </div>);
     }
   }
@@ -70,7 +70,6 @@ class App extends React.Component {
   signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
-      
       console.log('User signed out.');
     });
     this.handleSignOut();
@@ -81,10 +80,6 @@ class App extends React.Component {
     return (
       <div>
         <h2>CookBuk</h2>
-        
-        {/* <SignIn handleSignIn={this.handleSignIn} handleSignOut={this.handleSignOut}/>
-         */}
-        <h3>Welcome {this.state.fullName.split(' ')[0]}</h3>
         <ul>
           <li><a onClick={() => this.changeView('')}>Home</a></li>
           <li><a onClick={() => this.changeView('add')}>Create</a></li>
