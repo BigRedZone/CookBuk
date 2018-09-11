@@ -13,7 +13,7 @@ class App extends React.Component {
 
     this.state = {
       fullName: '',
-      view: '',
+      view: 'login',
       recipeOTD: {},
       recipe: {},
       recipes: sample
@@ -39,8 +39,17 @@ class App extends React.Component {
     this.changeView('overview');
   }
 
+  handleSignIn(fullName) {
+    this.setState({
+      fullName: fullName
+    })
+    console.log(this.state.fullName);
+  }
+
   renderComponent() {
-    if (this.state.view === 'overview') {
+    if (this.state.view === 'login') {
+      return <SignIn afterSignIn={this.handleSignIn}/>
+    } else if (this.state.view === 'overview') {
       return <Recipe recipe={this.state.recipe}/>
     } else if (this.state.view === 'add') {
       return <AddRecipe/>
@@ -52,26 +61,34 @@ class App extends React.Component {
     }
   }
 
-  handleSignOut(fullName) {
-    
-  }
-  
-  handleSignIn(fullName) {
+  handleSignOut() {
     this.setState({
-      fullName: fullName
+      fullName: ''
     })
-    console.log(this.state.fullName);
   }
 
+  signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      
+      console.log('User signed out.');
+    });
+    this.handleSignOut();
+    this.changeView('login');
+  }
+  
   render() {
     return (
       <div>
-        <SignIn handleSignIn={this.handleSignIn}/>
+        <h2>CookBuk</h2>
+        
+        {/* <SignIn handleSignIn={this.handleSignIn} handleSignOut={this.handleSignOut}/>
+         */}
         <h3>Welcome {this.state.fullName.split(' ')[0]}</h3>
         <ul>
           <li><a onClick={() => this.changeView('')}>Home</a></li>
           <li><a onClick={() => this.changeView('add')}>Create</a></li>
-          {/* <li><a onClick={() => }>Logout</a></li> */}
+          <li><a href="#" onClick={this.signOut.bind(this)}>Sign out</a></li>
         </ul>
         <div>
           {this.renderComponent()}
