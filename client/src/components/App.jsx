@@ -37,7 +37,6 @@ class App extends React.Component {
     } else if (this.state.view === 'add') {
       return <AddRecipe/>
     } else {
-      //Tae your component goes here
       return (
         <div>
           <h1 onClick={() => this.changeView('overview')}>{this.state.recipe.name}</h1>
