@@ -28,6 +28,7 @@
     "mongoose": "^5.2.13",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-google-login": "^3.2.1",
     "request": "^2.88.0"
   },
   "devDependencies": {
