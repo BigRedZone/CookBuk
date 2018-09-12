@@ -16,12 +16,12 @@ class App extends React.Component {
       view: 'login',
       recipeOTD: {},
       recipe: {},
-      recipes: sample
+      recipes: []
     };
 
     this.renderComponent = this.renderComponent.bind(this);
     this.changeView = this.changeView.bind(this);
-    // this.setRecipes = this.setRecipes.bind(this);
+    this.setRecipes = this.setRecipes.bind(this);
     this.selectRecipe = this.selectRecipe.bind(this);
     this.handleSignIn = this.handleSignIn.bind(this);
     this.handleSignOut = this.handleSignOut.bind(this);
@@ -30,6 +30,12 @@ class App extends React.Component {
   changeView(view) {
     this.setState({
       view: view
+    });
+  }
+
+  setRecipes(data) {
+    this.setState({
+      recipes: data
     });
   }
 
@@ -68,7 +74,7 @@ class App extends React.Component {
     } else if (this.state.view === 'add') {
       return <AddRecipe user={this.state.username}/>
     } else {
-      return <Selection selectRecipe={this.selectRecipe} recipes={this.state.recipes} user={this.state.username}/>
+      return <Selection selectRecipe={this.selectRecipe} recipes={this.state.recipes} setRecipes={this.setRecipes} user={this.state.username}/>
     }
   }
   
