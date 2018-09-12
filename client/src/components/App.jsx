@@ -34,9 +34,19 @@ class App extends React.Component {
   }
 
   setRecipes(data) {
+    let allRecipes = data.map((recipe) => {
+      return { username: recipe.username,
+        name: recipe.name,
+        ingredients: recipe.ingredients.split(','),
+        steps: recipe.steps.split(','),
+        cookTime: recipe.cookTime,
+        prepTime: recipe.prepTime,
+        servings: recipe.servings}
+    })
     this.setState({
-      recipes: data
+      recipes: allRecipes
     });
+    console.log(this.state.recipes);
   }
 
   selectRecipe(recipe) {
