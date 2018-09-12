@@ -53,7 +53,7 @@ class App extends React.Component {
     } else if (this.state.view === 'overview') {
       return <Recipe recipe={this.state.recipe}/>
     } else if (this.state.view === 'add') {
-      return <AddRecipe/>
+      return <AddRecipe user={this.state.fullName}/>
     } else {
       return <Selection selectRecipe={this.selectRecipe} recipes={this.state.recipes} user={this.state.fullName}/>
     }
