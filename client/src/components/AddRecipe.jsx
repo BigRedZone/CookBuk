@@ -1,6 +1,5 @@
 import React from 'react';
 import $ from 'jquery';
-// import Recipe from '../components/Recipe.jsx';
 
 class AddRecipe extends React.Component {
   constructor(props) {
@@ -84,8 +83,6 @@ class AddRecipe extends React.Component {
     this.setState({
       ingredients: newIngredients
     })
-    console.log(this.props);
-    console.log(this.props.user);
   }
 
   undoSteps() {
@@ -96,7 +93,6 @@ class AddRecipe extends React.Component {
   }
 
   submitRecipe() {
-    console.log(this.state.username);
     let recipe = {
       username: this.state.username,
       name: this.state.name,
@@ -106,7 +102,6 @@ class AddRecipe extends React.Component {
       prepTime: this.state.prepTime,
       servings: this.state.servings
     }
-    console.log(recipe);
     this.post('/recipe', recipe);
   }
 
