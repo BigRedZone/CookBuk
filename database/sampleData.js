@@ -31,7 +31,7 @@ const sampleData = [
     servings: 'over 9000'
   },
   {
-    username: 'Nate Ong',
+    username: 'nathan ong',
     name: 'Spaghetti',
     ingredients: '1lb pasta,2 cups of tomato sauce,3 meatballs',
     steps: 'boil water,throw in pasta,open can of tomato sauce, eat',
@@ -40,7 +40,7 @@ const sampleData = [
     servings: '5'
   },
   {
-    username: 'Nate Ong',
+    username: 'nathan ong',
     name: 'Hot Dog',
     ingredients: '5lbs miscellaneous meats,1 pack hot dog buns',
     steps: 'grind meats,encase links,toast bread,eat',
@@ -49,7 +49,7 @@ const sampleData = [
     servings: '365'
   },
   {
-    username: 'Nate Ong',
+    username: 'nathan ong',
     name: 'Cheese Pizza',
     ingredients: '1lb mozzarella cheese,tomato sauce, flour',
     steps: 'roll dough,sprinkle cheese,spread tomato sauce,eat',
