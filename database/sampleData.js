@@ -1,6 +1,6 @@
 const db = require('../database/index.js');
 const mongoose = require('mongoose');
-mongoose.connect(process.env.DATABASE_URL || 'mongodb://localhost:27017/cookbook', { useNewUrlParser: true });
+mongoose.connect(process.env.DATABASE_URI || 'mongodb://localhost:27017/cookbook', { useNewUrlParser: true });
 
 const sampleData = [
   {
