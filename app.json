@@ -1,10 +1,6 @@
 {
     "name": "BigRedZone Cookbook",
     "description": "An app to store recipes",
-    "repository": "https://github.com/BigRedZone/CookBuk.git",
-    "env": {
-        "DATABASE_URL": {
-            "url": "this is the databaseurl"
-        }
-    }
+    "repository": "https://github.com/BigRedZone/CookBuk.git"
+    
 }
