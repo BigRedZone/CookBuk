@@ -103,6 +103,13 @@ class EditDeleteRecipe extends React.Component {
     })
   }
 
+  handleCancelClick() {
+    if (confirm('You will lose all unsubmitted changes. Do you wish to continue?')) {
+      this.setState(this.props.recipe)
+      this.props.changeView('')
+    }
+  }
+
   render() {
     return (
       <div>
@@ -124,7 +131,10 @@ class EditDeleteRecipe extends React.Component {
         <div>
           <button id="submitChanges" onClick={() => this.submitClickHandler()}>Submit Changes</button>
         </div>
-        <a onClick={() => this.deleteHandler()}>Delete Recipe</a>
+        <div>
+          <button id="cancelChanges" onClick={() => this.handleCancelClick()}>Cancel Changes</button>
+        </div>
+        <button id="deleteRecipe" onClick={() => this.deleteHandler()}>Delete Recipe</button>
       </div>
     )
   }

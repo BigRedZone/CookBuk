@@ -3,6 +3,7 @@ import React from 'react';
 const Selection = (props) => {
   return (
     <div>
+      <h3>Welcome {props.user.split(' ')[0]}</h3>
       {
         props.recipes.map((recipe) => 
           <div>
@@ -14,7 +15,7 @@ const Selection = (props) => {
         )
       }
     </div>
-    );
+  );
 }
 
 export default Selection;

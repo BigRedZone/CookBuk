@@ -21,14 +21,15 @@ class Recipe extends React.Component {
 
   render() {
     if (this.state.view === 'steps') {
-      return (<Steps 
-        recipe={this.props.recipe} 
+      return (<Steps
+        recipe={this.props.recipe}
         clickExit={this.clickStart}
         />);
     } else if (this.state.view === 'edit') {
-      return (<EditDeleteRecipe 
-        recipe={this.props.recipe} 
-        clickSubmit={this.clickEdit}/>);
+      return (<EditDeleteRecipe
+        recipe={this.props.recipe}
+        clickSubmit={this.clickEdit}
+        changeView={this.changeView}/>)
     } else {
       return (
         <div>

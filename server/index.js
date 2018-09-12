@@ -13,17 +13,17 @@ app.use(bodyParser.urlencoded());
 app.use(express.static(__dirname + '/../client/'));
 
 
-app.get('/home', (req, res) => {
-  res.send('Sending back for /home');
+app.get('/', (req, res) => {
+  console.log(req.body);
 });
 
-app.get('/recipe', (req, res) => {
-  res.send('Sending back for /recipe');
-});
+// app.get('/recipe', (req, res) => {
+//   res.send('Sending back for /recipe');
+// });
 
-app.get('/homepage', (req, res) => {
-  res.end('GET request initiated!');
-});
+// app.get('/homepage', (req, res) => {
+//   res.end('GET request initiated!');
+// });
 
 app.post('/recipe', (req, res) => {
   db.find({name: req.body.name}, function(err, recipes) {
@@ -47,10 +47,10 @@ app.post('/recipe', (req, res) => {
 app.put('/edit', (req, res) => {
   console.log(req.body)
   db.findOneAndUpdate({name: req.body.name}, req.body.change)
-    .then(() => {
-      console.log('put request successful!')
-      res.end(/*Render entire database back to App*/)
-    })
+  .then(() => {
+    console.log('put request successful!')
+    res.end(/*Render entire database back to App*/)
+  })
 });
 
 app.delete('/delete', (req, res) => {
@@ -62,7 +62,6 @@ app.delete('/delete', (req, res) => {
       res.end(/*Render entire database back to App*/)
     }
   })
-
 })
 
 app.listen(port, () => {
