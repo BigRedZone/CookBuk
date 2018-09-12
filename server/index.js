@@ -66,5 +66,5 @@ app.delete('/delete', (req, res) => {
 
 app.listen(port, () => {
   console.log(`Listening on ${port}...`);
-  // console.log(process.env);
+  console.log(process.env);
 });
