@@ -89,9 +89,7 @@ class App extends React.Component {
   }
 
   renderComponent() {
-    if (this.state.view === 'login') {
-      return <SignIn afterSignIn={this.handleSignIn}/>
-    } else if (this.state.view === 'overview') {
+    if (this.state.view === 'overview') {
       return <Recipe recipe={this.state.recipe}/>
     } else if (this.state.view === 'add') {
       return <AddRecipe user={this.state.username}/>
@@ -101,19 +99,23 @@ class App extends React.Component {
   }
   
   render() {
-    return (
-      <div>
-        <h2>CookBuk</h2>
-        <ul>
-          <li><a onClick={() => this.changeView('')}>Home</a></li>
-          <li><a onClick={() => this.changeView('add')}>Create</a></li>
-          <li><a href="#" onClick={this.signOut.bind(this)}>Sign out</a></li>
-        </ul>
+    if (this.state.view === 'login') {
+      return <SignIn afterSignIn={this.handleSignIn}/>
+    } else {
+      return (
         <div>
-          {this.renderComponent()}
+          <h2>CookBuk</h2>
+          <ul>
+            <li><a onClick={() => this.changeView('')}>Home</a></li>
+            <li><a onClick={() => this.changeView('add')}>Create</a></li>
+            <li><a onClick={this.signOut.bind(this)}>Sign out</a></li>
+          </ul>
+          <div>
+            {this.renderComponent()}
+          </div>
         </div>
-      </div>
       );
+    }
   }
 }
 
