@@ -21,37 +21,11 @@ class App extends React.Component {
 
     this.renderComponent = this.renderComponent.bind(this);
     this.changeView = this.changeView.bind(this);
-    this.setRecipes = this.setRecipes.bind(this);
-    //this.fetch = this.fetch.bind(this);
+    // this.setRecipes = this.setRecipes.bind(this);
     this.selectRecipe = this.selectRecipe.bind(this);
     this.handleSignIn = this.handleSignIn.bind(this);
     this.handleSignOut = this.handleSignOut.bind(this);
   }
-
-  // componentDidMount() {
-  //   this.fetch('/', this.setRecipes);
-  // }
-
-  setRecipes(data) {
-    this.setState({
-      recipes: data
-    });
-  }
-
-  // fetch(url, callback) {
-  //   $.ajax({
-  //     type: 'GET',
-  //     url: url
- 
-  //   })
-  //   .done((data) => {
-  //     callback(data);
-  //     console.log('GET SUCCESS');
-  //   })
-  //   .fail(() => {
-  //     console.log('GET FAILED');
-  //   });
-  // }
 
   changeView(view) {
     this.setState({
@@ -100,7 +74,12 @@ class App extends React.Component {
   
   render() {
     if (this.state.view === 'login') {
-      return <SignIn afterSignIn={this.handleSignIn}/>
+      return (
+        <div>
+          <h1>CookBuk</h1>
+          <SignIn afterSignIn={this.handleSignIn}/>
+        </div>
+      )
     } else {
       return (
         <div>
