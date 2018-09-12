@@ -3,7 +3,6 @@
 import React from 'react';
 
 class SignIn extends React.Component{
-
   constructor(props){
 	super(props);
 	this.onSignIn = this.onSignIn.bind(this)
@@ -22,7 +21,7 @@ class SignIn extends React.Component{
   }
 
   onSignIn(googleUser) {
-	let profile = googleUser.getBasicProfile();
+    let profile = googleUser.getBasicProfile();
 	this.props.afterSignIn(profile.getName());
 	console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
 	console.log('Name: ' + profile.getName());
@@ -31,7 +30,7 @@ class SignIn extends React.Component{
   }
 
   render() {
-	return(
+	return (
 	  <div>
 		<div id="my-signin2" data-onsuccess={this.onSignIn}></div>
 	  </div>

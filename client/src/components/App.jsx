@@ -12,7 +12,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      fullName: '',
+      username: '',
       view: 'login',
       recipeOTD: {},
       recipe: {},
@@ -21,10 +21,37 @@ class App extends React.Component {
 
     this.renderComponent = this.renderComponent.bind(this);
     this.changeView = this.changeView.bind(this);
+    this.setRecipes = this.setRecipes.bind(this);
+    //this.fetch = this.fetch.bind(this);
     this.selectRecipe = this.selectRecipe.bind(this);
     this.handleSignIn = this.handleSignIn.bind(this);
     this.handleSignOut = this.handleSignOut.bind(this);
   }
+
+  // componentDidMount() {
+  //   this.fetch('/', this.setRecipes);
+  // }
+
+  setRecipes(data) {
+    this.setState({
+      recipes: data
+    });
+  }
+
+  // fetch(url, callback) {
+  //   $.ajax({
+  //     type: 'GET',
+  //     url: url
+ 
+  //   })
+  //   .done((data) => {
+  //     callback(data);
+  //     console.log('GET SUCCESS');
+  //   })
+  //   .fail(() => {
+  //     console.log('GET FAILED');
+  //   });
+  // }
 
   changeView(view) {
     this.setState({
@@ -41,27 +68,14 @@ class App extends React.Component {
 
   handleSignIn(fullName) {
     this.setState({
-      fullName: fullName
+      username: fullName
     })
     this.changeView('selection')
-    console.log(this.state.fullName);
-  }
-
-  renderComponent() {
-    if (this.state.view === 'login') {
-      return <SignIn afterSignIn={this.handleSignIn}/>
-    } else if (this.state.view === 'overview') {
-      return <Recipe recipe={this.state.recipe}/>
-    } else if (this.state.view === 'add') {
-      return <AddRecipe user={this.state.fullName}/>
-    } else {
-      return <Selection selectRecipe={this.selectRecipe} recipes={this.state.recipes} user={this.state.fullName}/>
-    }
   }
 
   handleSignOut() {
     this.setState({
-      fullName: ''
+      username: ''
     })
   }
 
@@ -72,6 +86,18 @@ class App extends React.Component {
     });
     this.handleSignOut();
     this.changeView('login');
+  }
+
+  renderComponent() {
+    if (this.state.view === 'login') {
+      return <SignIn afterSignIn={this.handleSignIn}/>
+    } else if (this.state.view === 'overview') {
+      return <Recipe recipe={this.state.recipe}/>
+    } else if (this.state.view === 'add') {
+      return <AddRecipe user={this.state.username}/>
+    } else {
+      return <Selection selectRecipe={this.selectRecipe} recipes={this.state.recipes} user={this.state.username}/>
+    }
   }
   
   render() {
