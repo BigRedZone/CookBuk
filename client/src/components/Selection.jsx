@@ -8,12 +8,12 @@ class Selection extends React.Component {
     this.state = {
       recipes: []
     }
-    this.fetch = this.fetch.bind(this);
+    this.post = this.post.bind(this);
     this.setRecipes = this.setRecipes.bind(this);
   }
 
   componentDidMount() {
-    this.fetch('/recipes', this.setRecipes);
+    this.post('/recipes', this.setRecipes);
   }
 
   setRecipes(data) {
@@ -22,15 +22,20 @@ class Selection extends React.Component {
     });
   }
 
-  fetch(url, callback) {
-    console.log(this);
+  post(url, callback) {
+    console.log('this in fetch', this);
     $.ajax({
-      type: 'GET',
-      url: url
+      type: 'POST',
+      url: url,
+      data: {
+        username: this.props.user
+      }
     })
     .done((data) => {
       callback(data);
       console.log('GET SUCCESS');
+      console.log('this successful data', data);
+      console.log('this is recipes', this.state.recipes)
     })
     .fail(() => {
       console.log('GET FAILED');
