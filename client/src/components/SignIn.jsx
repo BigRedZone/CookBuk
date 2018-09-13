@@ -23,6 +23,7 @@ class SignIn extends React.Component{
   onSignIn(googleUser) {
     let profile = googleUser.getBasicProfile();
 	this.props.afterSignIn(profile.getName());
+  this.props.changeView('home');
 	console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
 	console.log('Name: ' + profile.getName());
 	console.log('Image URL: ' + profile.getImageUrl());
