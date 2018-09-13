@@ -1,5 +1,5 @@
 body {
-  background: #FFCC99;
+  background: #00b7e4;
   font-family: Amaranth, sans-serif;
   color: white;
   text-align: center;
@@ -20,10 +20,12 @@ Signin Styles
 #signin-title {
   font-size: 65px;
   margin-bottom: 0%;
+  color: #fcfeff;
 }
 
 #signin-tagline {
   margin-top: 1%;
+  color: #cdeff7;
 }
 
 /*Google Login Button*/
@@ -46,13 +48,13 @@ Navigation Styles
 }
 
 a:hover {
-  color: red;
+  color: #94ddf1;
 }
 
 .nav-selected {
   display: inline;
   margin: 15px;
-  color: #F85F41;
+  color: #94ddf1;
 }
 
 /********************
@@ -60,7 +62,7 @@ Selection Styles
 ********************/
 
 #selection-container {
-  color: #F85F41;
+  color: #fcfeff;
   text-align: center;
 
 }
@@ -69,12 +71,16 @@ Selection Styles
   padding-bottom: 5px;
   border: solid;
   border-radius: 5px;
-  background: #FDE6B6;
+  background: #cdeff7;
   margin: auto;
   margin-top: 10px;
   margin-bottom: 10px;
   width: 50%;
   text-align: center;
+}
+
+span {
+  color: #52cbea;
 }
 
 .selection-recipe-name {
@@ -83,7 +89,7 @@ Selection Styles
 }
 
 .selection-recipe-name:hover {
-  color: red;
+  color: #94ddf1;
 }
 
 /********************
@@ -94,9 +100,9 @@ Add Recipe Styles
   margin: auto;
   border: solid;
   border-radius: 5px;
-  border-color: #F85F41;
+  border-color: #94ddf1;
   width: 50%;
-  background: #FDE6B6;
+  background: #cdeff7;
 }
 
 .add-recipe-form {
