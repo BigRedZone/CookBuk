@@ -10,6 +10,7 @@ class Recipe extends React.Component {
       view: ''
     };
     this.changeView = this.changeView.bind(this);
+    console.log(this.props.recipe.ingredients);
   }
 
   changeView(view) {

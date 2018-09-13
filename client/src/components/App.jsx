@@ -25,6 +25,7 @@ class App extends React.Component {
     this.selectRecipe = this.selectRecipe.bind(this);
     this.handleSignIn = this.handleSignIn.bind(this);
     this.handleSignOut = this.handleSignOut.bind(this);
+    this.manageIngredientsAndSteps = this.manageIngredientsAndSteps.bind(this);
     // this.getRecipes = this.getRecipes.bind(this);
   }
 
@@ -34,21 +35,37 @@ class App extends React.Component {
     });
   }
 
-
   setRecipes(data) {
     let allRecipes = data.map((recipe) => {
-      return { username: recipe.username,
+      let newRecipe = {
         name: recipe.name,
-        ingredients: recipe.ingredients.split(','),
-        steps: recipe.steps.split(','),
         cookTime: recipe.cookTime,
         prepTime: recipe.prepTime,
-        servings: recipe.servings}
+        servings: recipe.servings
+      }
+      return this.manageIngredientsAndSteps(recipe.ingredients, recipe.steps, newRecipe)
     })
     this.setState({
       recipes: allRecipes
     });
     console.log(this.state.recipes);
+  }
+
+  manageIngredientsAndSteps(ingredients, steps, newRecipe) {
+    if (steps.split(',') && ingredients.split(',')) {
+      newRecipe.ingredients = ingredients.split(',');
+      newRecipe.steps = steps.split(',');
+    } else if (steps.split(',')) {
+      newRecipe.ingredients = ingredients;
+      newRecipe.steps = steps.split(',');
+    } else if (ingredients.split(',')) {
+      newRecipe.ingredients = ingredients.split(',');
+      newRecipe.steps = steps;
+    } else {
+      newRecipe.ingredients = ingredients;
+      newRecipe.steps = steps;
+    }
+    return newRecipe;
   }
 
   selectRecipe(recipe) {
