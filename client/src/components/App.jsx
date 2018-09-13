@@ -25,7 +25,7 @@ class App extends React.Component {
     this.selectRecipe = this.selectRecipe.bind(this);
     this.handleSignIn = this.handleSignIn.bind(this);
     this.handleSignOut = this.handleSignOut.bind(this);
-    this.getRecipes = this.getRecipes.bind(this);
+    // this.getRecipes = this.getRecipes.bind(this);
   }
 
   changeView(view) {
@@ -93,7 +93,7 @@ class App extends React.Component {
   render() {
     if (this.state.view === 'login') {
       return (
-        <div>
+        <div id='login'>
           <h1>CookBuk</h1>
           <SignIn afterSignIn={this.handleSignIn}/>
         </div>
