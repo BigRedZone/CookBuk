@@ -61,9 +61,11 @@ class AddRecipe extends React.Component {
   }
 
   setIngredients() {
+    
     this.setState({
       ingredients: [...this.state.ingredients, this.state.ingredient]
     })
+    $('#ingredientsField').val('');
   }
 
   setStep(e) {
@@ -76,6 +78,7 @@ class AddRecipe extends React.Component {
     this.setState({
       steps: [...this.state.steps, this.state.step]
     })
+    $('#stepsField').val('');
   }
 
   undoIngredients() {
@@ -103,6 +106,7 @@ class AddRecipe extends React.Component {
       servings: this.state.servings
     }
     this.post('/recipe', recipe);
+    this.props.changeView('selection');
   }
 
   post(url, data) {
@@ -123,18 +127,18 @@ class AddRecipe extends React.Component {
     return (
       <div>
         <div>
-          <h1>CookBük</h1>
+          <h1>Add a Recipe!</h1>
           <form>
             Recipe Name: <input type="text" onChange={(e)=> {this.setName(e)}}/><br/><br/>
             Cook Time: <input type="text" onChange={(e) => {this.setCookTime(e)}}/><br/><br/>
             Prep Time: <input type="text" onChange={(e) => {this.setPrepTime(e)}}/><br/><br/>
             Servings: <input type="text" onChange={(e) => {this.setServings(e)}}/><br/><br/>
 
-            Add Ingredient: <input type="text" onChange={this.setIngredient}/><br/><br/>
-            <input type="button" value="Add Ingredient" onClick={this.setIngredients}/><br/><br/>
+            Add Ingredient: <input id="ingredientsField" type="text" onChange={this.setIngredient}/><br/><br/>
+            <input  type="button" value="Add Ingredient" onClick={this.setIngredients}/><br/><br/>
 
-            Add Steps: <input type="text" onChange={this.setStep}/><br/><br/>
-            <input type="button" value="Add Step" onClick={this.setSteps}/><br/><br/>
+            Add Steps: <input id="stepsField" type="text" onChange={this.setStep}/><br/><br/>
+            <input  type="button" value="Add Step" onClick={this.setSteps}/><br/><br/>
             
             <input type="button" value="Submit Recipe" onClick={this.submitRecipe}/>
           </form>

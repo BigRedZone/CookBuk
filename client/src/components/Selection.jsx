@@ -5,6 +5,7 @@ class Selection extends React.Component {
   constructor(props) {
     super(props);
     this.post = this.post.bind(this);
+    console.log('this is this.props', this.props);
   }
 
   componentDidMount() {
