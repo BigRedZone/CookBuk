@@ -1,6 +1,6 @@
 body {
   background: #00b7e4;
-  background-image: url('img/pan.jpg');
+  /*background-image: url('img/baking-bread-cooking.jpg');*/
   background-size: contain;
   background-repeat: no-repeat;
   background-size: cover;
@@ -14,6 +14,7 @@ Signin Styles
 ********************/
 
 #signin-container {
+  padding-top: 2.5%;
   margin: 15%;
 }
 
@@ -73,10 +74,10 @@ Selection Styles
 
 .selection-recipe {
   padding-bottom: 5px;
-/*  border: solid;*/
+  border: solid;
   border-radius: 5px;
   background: #cdeff7;
-  background-color: rgba(0, 183, 228, 0.5);
+  /*background-color: rgba(0, 183, 228, 0.5);*/
   margin: auto;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -89,7 +90,7 @@ span {
 }
 
 .selection-span {
-  color: #fff;
+  color: #52cbea;
 }
 
 .selection-recipe-name {
