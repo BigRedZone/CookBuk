@@ -1,5 +1,9 @@
 body {
   background: #00b7e4;
+  background-image: url('img/pan.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: Amaranth, sans-serif;
   color: white;
   text-align: center;
@@ -69,9 +73,10 @@ Selection Styles
 
 .selection-recipe {
   padding-bottom: 5px;
-  border: solid;
+/*  border: solid;*/
   border-radius: 5px;
   background: #cdeff7;
+  background-color: rgba(0, 183, 228, 0.5);
   margin: auto;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -81,6 +86,10 @@ Selection Styles
 
 span {
   color: #52cbea;
+}
+
+.selection-span {
+  color: #fff;
 }
 
 .selection-recipe-name {

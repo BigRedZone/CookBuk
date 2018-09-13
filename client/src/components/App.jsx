@@ -120,7 +120,7 @@ class App extends React.Component {
     } else {
       let myComponent;
       if (this.state.recipes.length > 0) {
-        myComponent = <KitchenAssistant recipeList={this.state.recipes} user={this.state.username}/>;
+        myComponent = <KitchenAssistant recipeList={this.state.recipes} user={this.state.username} handleCommand={this.changeView}/>;
       } else {
         myComponent = null;
       }

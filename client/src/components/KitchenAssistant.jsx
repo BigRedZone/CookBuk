@@ -102,7 +102,7 @@ export default class KitchenAssistant extends React.Component {
         </h2>
 
         <p>
-        Ask me what your most recent recipe is, and how long it takes to cook.
+        Ask me to read the directions for your recipe aloud while you cook.
         </p>
 
         {/* Voice commands action buttons */}
