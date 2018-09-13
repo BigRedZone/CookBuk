@@ -1,0 +1,58 @@
+body {
+  background: #4b95dd;
+  font-family: Amaranth, sans-serif;
+  color: white;
+}
+
+h1.signin{
+  color: white;
+  font-size: 65px;
+  text-align: center;
+  margin-bottom: 0%;
+}
+
+h2.signin{
+  color: white;
+  text-align: center;
+  margin-top: 1%;
+}
+
+ul {
+  text-align: center;
+}
+
+li {
+  display: inline;
+  margin: 15px;
+}
+
+
+
+#login {
+  margin: 15%;
+}
+
+.abcRioButton {
+  margin: auto;
+}
+
+#selection {
+  color: #4b95dd;
+  text-align: left;
+/*  background: white;*/
+}
+
+.recipe {
+  padding-left: 5px;
+  padding-bottom: 5px;
+  border: solid;
+  border-radius: 15px;
+  background: white;
+  margin: 5px;
+  width: 50%;
+}
+
+.nameOfRecipe {
+  margin-top: 0%;
+  margin-bottom: 0%;
+}

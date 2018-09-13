@@ -25,6 +25,7 @@ class App extends React.Component {
     this.selectRecipe = this.selectRecipe.bind(this);
     this.handleSignIn = this.handleSignIn.bind(this);
     this.handleSignOut = this.handleSignOut.bind(this);
+    // this.getRecipes = this.getRecipes.bind(this);
   }
 
   changeView(view) {
@@ -32,6 +33,7 @@ class App extends React.Component {
       view: view
     });
   }
+
 
   setRecipes(data) {
     let allRecipes = data.map((recipe) => {
@@ -91,15 +93,16 @@ class App extends React.Component {
   render() {
     if (this.state.view === 'login') {
       return (
-        <div>
-          <h1>CookBuk</h1>
+        <div id='login'>
+          <h1 class='signin'>CookBük</h1>
+          <h2 class='signin'>The only sous chef you'll ever need</h2>
           <SignIn afterSignIn={this.handleSignIn}/>
         </div>
       )
     } else {
       return (
         <div>
-          <h2>CookBuk</h2>
+          <h2>CookBük</h2>
           <ul>
             <li><a onClick={() => this.changeView('')}>Home</a></li>
             <li><a onClick={() => this.changeView('add')}>Create</a></li>
