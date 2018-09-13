@@ -13,16 +13,7 @@ app.use(bodyParser.urlencoded());
 app.use(express.static(__dirname + '/../client/'));
 
 
-<<<<<<< HEAD
-app.get('/recipes', (req, res) => {
-  db.find({}, (err, recipes) => {
-    if (err) {
-      console.log(err);
-      return;
-    }
-    // console.log(JSON.stringify(recipes));
-    res.send(JSON.stringify(recipes));
-=======
+
 app.post('/recipes', (req, res) => {
   db.find({username: req.body.username}, (err, recipes) => {
     if (err) {
@@ -30,7 +21,6 @@ app.post('/recipes', (req, res) => {
     } else {
       res.send(recipes);
     }
->>>>>>> 6378d61e17efb8f6a4be917f2bfcebe6a95d19ee
   })
 });
 
