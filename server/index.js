@@ -1,7 +1,7 @@
 //server
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 
 const db = require('../database/index.js');
@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded());
 app.use(express.static(__dirname + '/../client/'));
 
 
+<<<<<<< HEAD
 app.get('/recipes', (req, res) => {
   db.find({}, (err, recipes) => {
     if (err) {
@@ -21,15 +22,20 @@ app.get('/recipes', (req, res) => {
     }
     // console.log(JSON.stringify(recipes));
     res.send(JSON.stringify(recipes));
+=======
+app.post('/recipes', (req, res) => {
+  db.find({username: req.body.username}, (err, recipes) => {
+    if (err) {
+      console.log(`${req.body.username} not found`);
+    } else {
+      res.send(recipes);
+    }
+>>>>>>> 6378d61e17efb8f6a4be917f2bfcebe6a95d19ee
   })
 });
 
 // app.get('/recipe', (req, res) => {
 //   res.send('Sending back for /recipe');
-// });
-
-// app.get('/homepage', (req, res) => {
-//   res.end('GET request initiated!');
 // });
 
 app.post('/recipe', (req, res) => {
@@ -39,38 +45,47 @@ app.post('/recipe', (req, res) => {
     } else if (recipes.length === 0) {
       db.create(req.body, function(err, newRecipe) {
         if (err) {
-          console.log(err)
+          console.log(err);
         } else {
-          console.log(`${newRecipe} inserted into the db!`)
+          console.log(`${newRecipe} inserted into the db!`);
         }
       })
     } else {
-      console.log(`${req.body.name} already exists in database!`)
+      console.log(`${req.body.name} already exists in database!`);
     }
   })
   res.end('POST request initiated!');
 });
 
 app.put('/edit', (req, res) => {
-  console.log(req.body)
+  console.log(req.body);
   db.findOneAndUpdate({name: req.body.name}, req.body.change)
   .then(() => {
-    console.log('put request successful!')
-    res.end(/*Render entire database back to App*/)
-  })
+
+    db.find({username: req.body.change.username, name: req.body.change.name})
+    .then((recipe) => res.end(JSON.stringify(recipe))
+    )
+  });
+  // res.end();
 });
 
 app.delete('/delete', (req, res) => {
   db.deleteOne(req.body, function(err) {
     if (err) {
-      console.log('Could not delete due to: ', err)
+      console.log('Could not delete due to: ', err);
     } else {
-      console.log('delete request successful!')
-      res.end(/*Render entire database back to App*/)
+
+      console.log('successful deletion!')
+      res.end();
+      // db.find({usernamåe: req.body.username})
+      //   .then((recipes) => res.end(JSON.stringify(recipes)));
     }
   })
 })
 
 app.listen(port, () => {
-  console.log(`Listening on ${port}...`)
+  console.log(`Listening on ${port}...`);
+  // console.log(process.env);
 });
+
+//testing here
