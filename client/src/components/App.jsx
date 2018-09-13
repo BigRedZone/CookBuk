@@ -89,26 +89,26 @@ class App extends React.Component {
       return <Selection selectRecipe={this.selectRecipe} recipes={this.state.recipes} setRecipes={this.setRecipes} user={this.state.username}/>
     }
   }
-  
+
   render() {
     if (this.state.view === 'login') {
       return (
-        <div id='login'>
-          <h1 class='signin'>CookBük</h1>
-          <h2 class='signin'>The only sous chef you'll ever need</h2>
-          <SignIn afterSignIn={this.handleSignIn}/>
+        <div id='signin-container'>
+          <h1 className='signin' id='signin-title'>CookBük</h1>
+          <h2 className='signin' id='signin-tagline'>The only sous chef you'll ever need</h2>
+          <SignIn afterSignIn={this.handleSignIn} changeView={this.changeView}/>
         </div>
       )
     } else {
       return (
         <div>
           <h2>CookBük</h2>
-          <ul>
-            <li><a onClick={() => this.changeView('')}>Home</a></li>
-            <li><a onClick={() => this.changeView('add')}>Create</a></li>
-            <li><a onClick={this.signOut.bind(this)}>Sign out</a></li>
+          <ul id='nav-menu'>
+            <li className={this.state.view === 'home' ? 'nav-selected' : 'nav-unselected'}><a onClick={() => this.changeView('home')}>Home</a></li>
+            <li className={this.state.view === 'add' ? 'nav-selected' : 'nav-unselected'}><a onClick={() => this.changeView('add')}>Create</a></li>
+            <li className='nav-unselected'><a onClick={this.signOut.bind(this)}>Sign out</a></li>
           </ul>
-          <div>
+          <div id='child-component-container'>
             {this.renderComponent()}
           </div>
         </div>
