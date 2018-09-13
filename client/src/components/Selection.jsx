@@ -43,7 +43,7 @@ class Selection extends React.Component {
           )
         }
       </div>
-    );
+    )
   }
 }
 
