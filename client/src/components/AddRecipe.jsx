@@ -61,7 +61,7 @@ class AddRecipe extends React.Component {
   }
 
   setIngredients() {
-    
+
     this.setState({
       ingredients: [...this.state.ingredients, this.state.ingredient]
     })
@@ -126,46 +126,50 @@ class AddRecipe extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          <h1>Add a Recipe!</h1>
-          <form>
-            Recipe Name: <input type="text" onChange={(e)=> {this.setName(e)}}/><br/><br/>
-            Cook Time: <input type="text" onChange={(e) => {this.setCookTime(e)}}/><br/><br/>
-            Prep Time: <input type="text" onChange={(e) => {this.setPrepTime(e)}}/><br/><br/>
-            Servings: <input type="text" onChange={(e) => {this.setServings(e)}}/><br/><br/>
+        <h1>Add a Recipe!</h1>
+        <div id='add-recipe-container'>
+          <div id='add-recipe-section-1'>
+            <form className='add-recipe-form'>
+              <div className='add-recipe-input'>
+                Recipe Name: <input type="text" onChange={(e)=> {this.setName(e)}}/><br/><br/>
+                Cook Time: <input type="text" onChange={(e) => {this.setCookTime(e)}}/><br/><br/>
+                Prep Time: <input type="text" onChange={(e) => {this.setPrepTime(e)}}/><br/><br/>
+                Servings: <input type="text" onChange={(e) => {this.setServings(e)}}/><br/><br/>
 
-            Add Ingredient: <input id="ingredientsField" type="text" onChange={this.setIngredient}/><br/><br/>
-            <input  type="button" value="Add Ingredient" onClick={this.setIngredients}/><br/><br/>
+                Add Ingredient: <input id="ingredientsField" type="text" onChange={this.setIngredient}/><br/><br/>
+                <input  type="button" value="Add Ingredient" onClick={this.setIngredients}/><br/><br/>
 
-            Add Steps: <input id="stepsField" type="text" onChange={this.setStep}/><br/><br/>
-            <input  type="button" value="Add Step" onClick={this.setSteps}/><br/><br/>
-            
-            <input type="button" value="Submit Recipe" onClick={this.submitRecipe}/>
-          </form>
-        </div>
-        <div>
-          Recipe Name: {this.state.name}<br></br>
-          Cook Time: {this.state.cookTime}<br></br>
-          Prep Time: {this.state.prepTime}<br></br>
-          Servings: {this.state.servings}<br></br>
-          Ingredients: 
-          <ul>
-            {this.state.ingredients.map((ingredient) => {
-              return (
-                <li>{ingredient}</li>
-              )
-            })}
-          </ul><br></br>
-          <button onClick={this.undoIngredients}>Undo</button><br></br>
-          Steps:
-          <ol>
-            {this.state.steps.map((step) => {
-              return (
-                <li>{step}</li>
-              )
-            })}
-          </ol><br></br>
-          <button onClick={this.undoSteps}>Undo</button>
+                Add Steps: <input id="stepsField" type="text" onChange={this.setStep}/><br/><br/>
+                <input  type="button" value="Add Step" onClick={this.setSteps}/><br/><br/>
+
+                <input type="button" value="Submit Recipe" onClick={this.submitRecipe}/>
+              </div>
+            </form>
+          </div>
+          <div id='add-recipe-section-2'>
+            Recipe Name: {this.state.name}<br></br>
+            Cook Time: {this.state.cookTime}<br></br>
+            Prep Time: {this.state.prepTime}<br></br>
+            Servings: {this.state.servings}<br></br>
+            Ingredients:
+            <ul>
+              {this.state.ingredients.map((ingredient) => {
+                return (
+                  <li>{ingredient}</li>
+                )
+              })}
+            </ul><br></br>
+            <button onClick={this.undoIngredients}>Undo</button><br></br>
+            Steps:
+            <ol>
+              {this.state.steps.map((step) => {
+                return (
+                  <li>{step}</li>
+                )
+              })}
+            </ol><br></br>
+            <button onClick={this.undoSteps}>Undo</button>
+          </div>
         </div>
       </div>
     )

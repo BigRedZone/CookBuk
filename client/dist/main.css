@@ -55,13 +55,6 @@ a:hover {
   color: #F85F41;
 }
 
-
-/********************
-Child Component Default Styles
-********************/
-
-
-
 /********************
 Selection Styles
 ********************/
@@ -73,7 +66,6 @@ Selection Styles
 }
 
 .selection-recipe {
-  padding-left: 5px;
   padding-bottom: 5px;
   border: solid;
   border-radius: 5px;
@@ -93,3 +85,64 @@ Selection Styles
 .selection-recipe-name:hover {
   color: red;
 }
+
+/********************
+Add Recipe Styles
+********************/
+
+#add-recipe-container {
+  margin: auto;
+  border: solid;
+  border-radius: 5px;
+  border-color: #F85F41;
+  width: 50%;
+  background: #FDE6B6;
+}
+
+.add-recipe-form {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: left;
+}
+
+.add-recipe-input {
+  padding-left: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

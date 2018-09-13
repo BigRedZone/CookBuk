@@ -30,6 +30,7 @@ class Selection extends React.Component {
   }
 
   render () {
+    return (
       <div id='selection-container'>
         <h3>Welcome {this.props.user.split(' ')[0]}</h3>
         {
