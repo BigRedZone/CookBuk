@@ -30,20 +30,21 @@ class Selection extends React.Component {
   }
 
   render () {
+    return (
       <div id='selection-container'>
         <h3>Welcome {this.props.user.split(' ')[0]}</h3>
-        {
-          this.props.recipes.map((recipe) =>
-            <div class='selection-recipe'>
-              <h1 class='selection-recipe-name' onClick={() => this.props.selectRecipe(recipe)}>{recipe.name}</h1>
-              <span>Time To Prep: {recipe.prepTime} </span><br/>
-              <span>Time To Cook:{recipe.cookTime} </span><br/>
-              <span>Servings: {recipe.servings}</span><br/>
-            </div>
-          )
-        }
+          {
+            this.props.recipes.map((recipe) =>
+              <div class='selection-recipe'>
+                <h1 class='selection-recipe-name' onClick={() => this.props.selectRecipe(recipe)}>{recipe.name}</h1>
+                <span>Time To Prep: {recipe.prepTime} </span><br/>
+                <span>Time To Cook:{recipe.cookTime} </span><br/>
+                <span>Servings: {recipe.servings}</span><br/>
+              </div>
+            )
+          }
       </div>
-    );
+    )
   }
 }
 
