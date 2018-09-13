@@ -6,10 +6,9 @@ class EditDeleteRecipe extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: this.props.username,
       name: this.props.recipe.name,
-      ingredients: this.props.recipe.ingredients,
-      steps: this.props.recipe.steps,
+      ingredients: this.props.recipe.ingredients.join(', '),
+      steps: this.props.recipe.steps.join(', '),
       cookTime: this.props.recipe.cookTime,
       prepTime: this.props.recipe.prepTime,
       servings: this.props.recipe.servings
@@ -25,33 +24,31 @@ class EditDeleteRecipe extends React.Component {
     this.updateRecipe = this.updateRecipe.bind(this);
   }
 
-  updateRecipe (targetRecipe, editedRecipe) {
-    var context = this;
+  updateRecipe (recipeName, editedRecipe) {
+
     $.ajax({
       type: 'PUT',
       url: 'http://localhost:3000/edit',
       data: {name: targetRecipe, change: editedRecipe}
     })
-    .done((recipe) => {
-      context.props.selectRecipe(JSON.parse(recipe)[0])
-      context.props.changeView('overview')
+    .done((data) => {
+      console.log('PUT request data returned: ', data)
+      console.log('PUT request success')
     })
     .fail(() => {
       console.log('PUT request failed')
     })
   }
 
-  deleteRecipe (targetRecipe, username) {
-    var context = this;
+  deleteRecipe (targetRecipe) {
     $.ajax({
       type: 'Delete',
       url: 'http://localhost:3000/delete',
-      data: {name: targetRecipe, username: username}
+      data: {name: targetRecipe}
     })
     .done((data) => {
-      // console.log('DELETE request success')
-      // context.props.setRecipes(JSON.parse(data))
-      context.props.changeAppView('')
+      console.log('DELETE request data returned: ', data)
+      console.log('DELETE request success')
     })
     .fail(() => {
       console.log('DELETE request failed')
@@ -59,18 +56,15 @@ class EditDeleteRecipe extends React.Component {
   }
 
   deleteHandler () {
-    var context = this;
     if (confirm('Are you sure you want to delete this recipe?')) {
-      this.deleteRecipe(this.props.recipe.name, this.state.username);
+      this.deleteRecipe(this.props.recipe.name)
       console.log(`Deleted ${this.props.recipe.name}!`);
-      // context.props.changeView('login');
     }
   }
   submitClickHandler() {
 
     this.updateRecipe(this.props.recipe.name, this.state);
-    // this.props.selectRecipe(this.props.recipe);
-    // this.props.changeView('')
+    this.props.clickSubmit();
   }
 
   nameHandler(event) {

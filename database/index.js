@@ -1,6 +1,6 @@
 //database
 const mongoose = require('mongoose');
-mongoose.connect(process.env.DATABASE_URI || 'mongodb://localhost:27017/cookbook', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/cookbook', { useNewUrlParser: true });
 
 const recipeSchema = mongoose.Schema({
   username: String,

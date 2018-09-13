@@ -1,7 +1,7 @@
 //server
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000;
 const bodyParser = require('body-parser');
 
 const db = require('../database/index.js');
@@ -34,47 +34,38 @@ app.post('/recipe', (req, res) => {
     } else if (recipes.length === 0) {
       db.create(req.body, function(err, newRecipe) {
         if (err) {
-          console.log(err);
+          console.log(err)
         } else {
-          console.log(`${newRecipe} inserted into the db!`);
+          console.log(`${newRecipe} inserted into the db!`)
         }
       })
     } else {
-      console.log(`${req.body.name} already exists in database!`);
+      console.log(`${req.body.name} already exists in database!`)
     }
   })
   res.end('POST request initiated!');
 });
 
 app.put('/edit', (req, res) => {
-  console.log(req.body);
+  console.log(req.body)
   db.findOneAndUpdate({name: req.body.name}, req.body.change)
   .then(() => {
-
-    db.find({username: req.body.change.username, name: req.body.change.name})
-    .then((recipe) => res.end(JSON.stringify(recipe))
-    )
-  });
-  // res.end();
+    console.log('put request successful!')
+    res.end(/*Render entire database back to App*/)
+  })
 });
 
 app.delete('/delete', (req, res) => {
   db.deleteOne(req.body, function(err) {
     if (err) {
-      console.log('Could not delete due to: ', err);
+      console.log('Could not delete due to: ', err)
     } else {
-
-      console.log('successful deletion!')
-      res.end();
-      // db.find({usernamåe: req.body.username})
-      //   .then((recipes) => res.end(JSON.stringify(recipes)));
+      console.log('delete request successful!')
+      res.end(/*Render entire database back to App*/)
     }
   })
 })
 
 app.listen(port, () => {
-  console.log(`Listening on ${port}...`);
-  // console.log(process.env);
+  console.log(`Listening on ${port}...`)
 });
-
-//testing here
