@@ -50,9 +50,12 @@ app.put('/edit', (req, res) => {
   console.log(req.body);
   db.findOneAndUpdate({name: req.body.name}, req.body.change)
   .then(() => {
-    console.log('put request successful!');
-    res.end(/*Render entire database back to App*/);
-  })
+
+    db.find({username: req.body.change.username, name: req.body.change.name})
+    .then((recipe) => res.end(JSON.stringify(recipe))
+    )
+  });
+  // res.end();
 });
 
 app.delete('/delete', (req, res) => {
@@ -60,8 +63,11 @@ app.delete('/delete', (req, res) => {
     if (err) {
       console.log('Could not delete due to: ', err);
     } else {
-      console.log('delete request successful!');
-      res.end(/*Render entire database back to App*/);
+
+      console.log('successful deletion!')
+      res.end();
+      // db.find({usernamåe: req.body.username})
+      //   .then((recipes) => res.end(JSON.stringify(recipes)));
     }
   })
 })
