@@ -24,6 +24,7 @@ class Recipe extends React.Component {
       return (<Steps
         recipe={this.props.recipe}
         clickExit={this.clickStart}
+        changeView={this.changeView}
         />);
     } else if (this.state.view === 'edit') {
       return (<EditDeleteRecipe
@@ -36,7 +37,6 @@ class Recipe extends React.Component {
     } else {
       return (
         <div>
-          <h3>CookBuk</h3>
           <h1>{this.props.recipe.name}</h1>
           <div>
             <h4>Recipe Overview</h4>

@@ -84,7 +84,7 @@ class App extends React.Component {
     if (this.state.view === 'overview') {
       return <Recipe username={this.state.username} selectRecipe= {this.selectRecipe}recipe={this.state.recipe} setRecipes={this.setRecipes}changeAppView={this.changeView}/>
     } else if (this.state.view === 'add') {
-      return <AddRecipe user={this.state.username}/>
+      return <AddRecipe user={this.state.username} changeView={this.changeView}/>
     } else {
       return <Selection selectRecipe={this.selectRecipe} recipes={this.state.recipes} setRecipes={this.setRecipes} user={this.state.username}/>
     }
@@ -102,7 +102,7 @@ class App extends React.Component {
     } else {
       return (
         <div>
-          <h2>CookBük</h2>
+          <h2 onClick={() => this.changeView('selection')}>CookBük</h2>
           <ul>
             <li><a onClick={() => this.changeView('')}>Home</a></li>
             <li><a onClick={() => this.changeView('add')}>Create</a></li>
