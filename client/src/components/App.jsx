@@ -94,14 +94,15 @@ class App extends React.Component {
     if (this.state.view === 'login') {
       return (
         <div id='login'>
-          <h1>CookBuk</h1>
+          <h1 class='signin'>CookBük</h1>
+          <h2 class='signin'>The only sous chef you'll ever need</h2>
           <SignIn afterSignIn={this.handleSignIn}/>
         </div>
       )
     } else {
       return (
         <div>
-          <h2>CookBuk</h2>
+          <h2>CookBük</h2>
           <ul>
             <li><a onClick={() => this.changeView('')}>Home</a></li>
             <li><a onClick={() => this.changeView('add')}>Create</a></li>
