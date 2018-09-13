@@ -16,7 +16,7 @@ class App extends React.Component {
       view: 'login',
       recipeOTD: {},
       recipe: {},
-      recipes: sample
+      recipes: []
     };
 
     this.renderComponent = this.renderComponent.bind(this);
@@ -26,16 +26,28 @@ class App extends React.Component {
     this.selectRecipe = this.selectRecipe.bind(this);
     this.handleSignIn = this.handleSignIn.bind(this);
     this.handleSignOut = this.handleSignOut.bind(this);
+    this.getRecipes = this.getRecipes.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.fetch('/', this.setRecipes);
-  // }
+  componentDidMount() {
+    console.log('mounting!');
+    this.getRecipes();
+  }
 
   setRecipes(data) {
     this.setState({
       recipes: data
     });
+  }
+
+  getRecipes() {
+    $.get('http://localhost:3000/recipes', (recipes) => {
+      console.log(recipes);
+      this.setState({
+        recipes: recipes
+      });
+      this.render();
+    })
   }
 
   // fetch(url, callback) {

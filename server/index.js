@@ -13,8 +13,15 @@ app.use(bodyParser.urlencoded());
 app.use(express.static(__dirname + '/../client/'));
 
 
-app.get('/', (req, res) => {
-  console.log(req.body);
+app.get('/recipes', (req, res) => {
+  db.find({}, (err, recipes) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    // console.log(JSON.stringify(recipes));
+    res.send(JSON.stringify(recipes));
+  })
 });
 
 // app.get('/recipe', (req, res) => {
