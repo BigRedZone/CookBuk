@@ -5,7 +5,7 @@ import Recipe from './Recipe.jsx';
 import Selection from './Selection.jsx';
 import SignIn from './SignIn.jsx';
 
-import sample from '../../../util/sampleData.js'
+import sample from '../../../util/sampleData.js';
 
 class App extends React.Component {
   constructor(props) {
