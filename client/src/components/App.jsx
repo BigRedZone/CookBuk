@@ -87,7 +87,7 @@ class App extends React.Component {
       return <Selection selectRecipe={this.selectRecipe} recipes={this.state.recipes} setRecipes={this.setRecipes} user={this.state.username}/>
     }
   }
-  
+
   render() {
     if (this.state.view === 'login') {
       return (
