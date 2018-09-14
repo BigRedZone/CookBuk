@@ -29,7 +29,7 @@ class EditDeleteRecipe extends React.Component {
     var context = this;
     $.ajax({
       type: 'PUT',
-      url: 'http://localhost:3000/edit',
+      url: '/edit',
       data: {name: targetRecipe, change: editedRecipe}
     })
     .done((recipe) => {
@@ -45,7 +45,7 @@ class EditDeleteRecipe extends React.Component {
     var context = this;
     $.ajax({
       type: 'Delete',
-      url: 'http://localhost:3000/delete',
+      url: '/delete',
       data: {name: targetRecipe, username: username}
     })
     .done((data) => {
