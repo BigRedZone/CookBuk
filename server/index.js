@@ -6,7 +6,12 @@ const bodyParser = require('body-parser');
 
 const db = require('../database/index.js');
 
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Acces-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
+  next();
+});
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
