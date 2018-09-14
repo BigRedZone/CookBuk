@@ -33,6 +33,7 @@ class App extends React.Component {
     this.setState({
       view: view
     });
+    this.render()
   }
 
   setRecipes(data) {

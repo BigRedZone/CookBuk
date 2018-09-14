@@ -29,7 +29,7 @@ app.post('/recipes', (req, res) => {
 // });
 
 app.post('/recipe', (req, res) => {
-  db.find({name: req.body.name}, function(err, recipes) {
+  db.find({name: req.body.name, username: req.body.username}, function(err, recipes) {
     if (err) {
       console.log(err)
     } else if (recipes.length === 0) {
@@ -44,7 +44,13 @@ app.post('/recipe', (req, res) => {
       console.log(`${req.body.name} already exists in database!`);
     }
   })
-  res.end('POST request initiated!');
+  db.find({username: req.body.username}, (err, recipes) => {
+    if (err) {
+      console.log(`${req.body.username} not found`);
+    } else {
+      res.send(recipes);
+    }
+  })
 });
 
 app.put('/edit', (req, res) => {
