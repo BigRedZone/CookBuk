@@ -96,20 +96,25 @@ class AddRecipe extends React.Component {
   }
 
   submitRecipe() {
-    let recipe = {
-      username: this.state.username,
-      name: this.state.name,
-      ingredients: this.state.ingredients,
-      steps: this.state.steps,
-      cookTime: this.state.cookTime,
-      prepTime: this.state.prepTime,
-      servings: this.state.servings
+    if (this.state.name) {
+      let recipe = {
+        username: this.state.username,
+        name: this.state.name,
+        ingredients: this.state.ingredients,
+        steps: this.state.steps,
+        cookTime: this.state.cookTime,
+        prepTime: this.state.prepTime,
+        servings: this.state.servings
+      }
+      this.post('/recipe', recipe);
+      this.props.changeView('selection');
+    } else {
+      alert('Must fill out name form!');
     }
-    this.post('/recipe', recipe);
-    this.props.changeView('selection');
   }
 
   post(url, data) {
+    console.log('DATA GOING INTO SERVER:', data)
     $.ajax({
       type: 'POST',
       url: url,
