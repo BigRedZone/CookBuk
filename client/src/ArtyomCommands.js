@@ -6,23 +6,69 @@ export default class ArtyomCommandsManager {
 
   loadCommands(recipeInfo) {
     let Artyom = this._artyom;
-    console.log('RECIPE INFO:', recipeInfo.recipeList.length);
-
-    const recipeNames = recipeInfo.recipeList.map(recipe => recipe.name);
-
+    console.log('this is recipe info', recipeInfo);
+    console.log(recipeInfo.recipe)
     return Artyom.addCommands([
       {
-        indexes: ["What recipes do I have?"],
+        indexes: ["What ingredients do I need?"],
         action: () => {
-          Artyom.say("You have " + recipeNames);
+          Artyom.say(`You need ${recipeInfo.recipe.ingredients}`);
+        }
+      },
+      {
+        indexes: ["How long is prep time?"],
+        action: () => {
+          Artyom.say(`Prep time is ${recipeInfo.recipe.prepTime}`);
+        }
+      },
+      {
+        indexes: ["How long is cook time?"],
+        action: () => {
+          Artyom.say(`Cook time is ${recipeInfo.recipe.cookTime}`);
+        }
+      },
+      {
+        indexes: ["Thank you"],
+        action: () => {
+          Artyom.say(`You're welcome`);
         },
       },
       {
-        indexes: ["How many recipes do I have in my cookbook?"],
+        indexes: ['lets Begin'],
         action: () => {
-          Artyom.say("You have " + recipeInfo.recipeList.length + " recipes in your cookbook");
-        },
+          console.log('sup dude');
+        }
       },
+      {
+        indexes: ['what\'s next'],
+        action: () => {
+          recipeInfo.clickNext();
+        }
+      },
+      {
+        indexes: ['what\'s the previous step'],
+        action: () => {
+          recipeInfo.clickPrev();
+        }
+      },
+      {
+        indexes: ['what\'s the first step'],
+        action: () => {
+          recipeInfo.clickFirst();
+        }
+      },
+      {
+        indexes: ['take me to the last step'],
+        action: () => {
+          recipeInfo.clickLast();
+        }
+      },
+      {
+        indexes: ['get me out of here'],
+        action: () => {
+          recipeInfo.clickExit();
+        }
+      }
     ]);
   }
 }

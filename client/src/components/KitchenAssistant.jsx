@@ -97,10 +97,9 @@ export default class KitchenAssistant extends React.Component {
   render() {
     return (
       <div>
-        <h2 className="assistant-welcome">
-        Hello, {this.props.user.split(' ')[0]}. I'm Your Kitchen Assistant.
+        <h2>
+        Hello. I'm Your Kitchen Assistant.
         </h2>
-
         <p className="assistant-tagline">
         Ask me to read the directions for your recipe aloud while you cook.
         </p>
