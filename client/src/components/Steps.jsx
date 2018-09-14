@@ -1,4 +1,5 @@
 import React from 'react';
+import KitchenAssistant from './KitchenAssistant.jsx'
 
 class Steps extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class Steps extends React.Component {
       lastClicked: false,
       currentStep: 0
     }
+    console.log('this is props', props);
     this.clickNext = this.clickNext.bind(this);
     this.clickPrev = this.clickPrev.bind(this);
     this.clickFirst = this.clickFirst.bind(this);
@@ -58,7 +60,6 @@ class Steps extends React.Component {
   }
 
   render() {
-
     return (
       <div>
         <h1>{this.props.recipe.name}</h1>
@@ -75,6 +76,14 @@ class Steps extends React.Component {
         <button onClick={this.clickNext}>Next</button>
         <button onClick={this.clickLast}>Last</button>
         <button onClick={this.clickExit}>Exit</button>
+        <KitchenAssistant 
+          recipe = {this.props.recipe} 
+          clickNext = {this.clickNext}
+          clickPrev = {this.clickPrev}
+          clickFirst = {this.clickFirst}
+          clickLast = {this.clickLast}
+          clickExit = {this.clickExit}
+        />
       </div>
     )
   }
