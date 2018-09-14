@@ -63,7 +63,7 @@ class Steps extends React.Component {
     return (
       <div>
         <h1>{this.props.recipe.name}</h1>
-        <div>
+        <div id='steps-container'>
           <h2>Step {this.state.currentStep + 1}:</h2>
           {this.props.recipe.steps.map((step, i) => {
             if (this.state.currentStep === i) {

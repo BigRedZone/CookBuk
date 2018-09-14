@@ -100,14 +100,13 @@ export default class KitchenAssistant extends React.Component {
         <h2>
         Hello. I'm Your Kitchen Assistant.
         </h2>
-
-        <p>
-        Ask me what your most recent recipe is, and how long it takes to cook.
+        <p className="assistant-tagline">
+        Ask me to read the directions for your recipe aloud while you cook.
         </p>
 
         {/* Voice commands action buttons */}
-        <input type="button" value="Start Kitchen Assistant" disabled={this.state.artyomActive} onClick={this.startAssistant} />
-        <input type="button" value="Stop Kitchen Assistant" disabled={!this.state.artyomActive} onClick={this.stopAssistant} />
+        <input type="button" value="Start Kitchen Assistant" className={this.state.artyomActive ? 'assistant-unselected' : 'assistant-selected'} onClick={this.startAssistant} />
+        <input type="button" value="Stop Kitchen Assistant" className={!this.state.artyomActive ? 'assistant-unselected' : 'assistant-selected'} onClick={this.stopAssistant} />
       </div>
     );
   }
