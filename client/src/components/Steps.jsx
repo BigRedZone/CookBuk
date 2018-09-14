@@ -1,4 +1,5 @@
 import React from 'react';
+import KitchenAssistant from './KitchenAssistant.jsx'
 
 class Steps extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class Steps extends React.Component {
       lastClicked: false,
       currentStep: 0
     }
+    console.log('this is props', props);
     this.clickNext = this.clickNext.bind(this);
     this.clickPrev = this.clickPrev.bind(this);
     this.clickFirst = this.clickFirst.bind(this);
@@ -58,7 +60,6 @@ class Steps extends React.Component {
   }
 
   render() {
-
     return (
       <div>
         <h1>{this.props.recipe.name}</h1>
@@ -70,13 +71,19 @@ class Steps extends React.Component {
             }
           })}
         </div>
-        <div className='steps-button-container'>
-        <button className='steps-button' onClick={this.clickFirst}>First</button>
-        <button className='steps-button' onClick={this.clickPrev}>Prev.</button>
-        <button className='steps-button' onClick={this.clickNext}>Next</button>
-        <button className='steps-button' onClick={this.clickLast}>Last</button>
-        </div>
-        <a className='steps-exit-link' onClick={this.clickExit}>Exit</a>
+        <button onClick={this.clickFirst}>First</button>
+        <button onClick={this.clickPrev}>Prev.</button>
+        <button onClick={this.clickNext}>Next</button>
+        <button onClick={this.clickLast}>Last</button>
+        <button onClick={this.clickExit}>Exit</button>
+        <KitchenAssistant 
+          recipe = {this.props.recipe} 
+          clickNext = {this.clickNext}
+          clickPrev = {this.clickPrev}
+          clickFirst = {this.clickFirst}
+          clickLast = {this.clickLast}
+          clickExit = {this.clickExit}
+        />
       </div>
     )
   }

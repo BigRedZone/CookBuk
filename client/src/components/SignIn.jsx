@@ -9,14 +9,14 @@ class SignIn extends React.Component{
   }
 
   componentDidMount() {
-		setTimeout(()=> {gapi.signin2.render('my-signin2', {
+		gapi.signin2.render('my-signin2', {
 			'scope': 'profile email',
 			'width': 250,
 			'height': 50,
 			'longtitle': true,
 			'theme': 'light',
 			'onsuccess': this.onSignIn
-		})}, 5);
+		});
   }
 
   onSignIn(googleUser) {
