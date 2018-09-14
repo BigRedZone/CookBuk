@@ -365,7 +365,7 @@ Recipe Styles
 
 #recipe-title {
   padding-top: 30px;
-  color: #fff;
+  color: #333647;
 }
 
 /********************
@@ -392,11 +392,12 @@ Edit Styles
 .edit-container {
   margin: auto;
   margin-top: 10px;
+  margin-bottom: 50px;
   /*border: solid;*/
   border-radius: 5px;
   /*border-color: #fcfeff;*/
   color: #00b7e4;
-  width: 40%;
+  width: 30%;
   background: #8c92ac;
   background-color: rgb(140,146,172, 0.8);
 }
