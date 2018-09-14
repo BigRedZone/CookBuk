@@ -67,10 +67,13 @@ class EditDeleteRecipe extends React.Component {
     }
   }
   submitClickHandler() {
-
-    this.updateRecipe(this.props.recipe.name, this.state);
-    // this.props.selectRecipe(this.props.recipe);
-    // this.props.changeView('')
+    if (this.state.name) {
+      this.updateRecipe(this.props.recipe.name, this.state);
+      // this.props.selectRecipe(this.props.recipe);
+      // this.props.changeView('')
+    } else {
+      alert('Must fill out name form!')
+    }
   }
 
   nameHandler(event) {
