@@ -4,7 +4,6 @@ import AddRecipe from './AddRecipe.jsx';
 import Recipe from './Recipe.jsx';
 import Selection from './Selection.jsx';
 import SignIn from './SignIn.jsx';
-import KitchenAssistant from './KitchenAssistant.jsx'
 
 import sample from '../../../util/sampleData.js'
 
@@ -117,29 +116,21 @@ class App extends React.Component {
           <SignIn afterSignIn={this.handleSignIn} changeView={this.changeView}/>
         </div>
       )
-    } else {
-      let myComponent;
-      if (this.state.recipes.length > 0) {
-        myComponent = <KitchenAssistant recipeList={this.state.recipes} user={this.state.username}/>;
-      } else {
-        myComponent = null;
-      }
+    } 
       return (
         <div>
-          <h2>CookBük</h2>
+          <h2 className="nav-logo" onClick={() => this.changeView('home')}>CookBük</h2>
           <ul id='nav-menu'>
             <li className={this.state.view === 'home' ? 'nav-selected' : 'nav-unselected'}><a onClick={() => this.changeView('home')}>Home</a></li>
             <li className={this.state.view === 'add' ? 'nav-selected' : 'nav-unselected'}><a onClick={() => this.changeView('add')}>Create</a></li>
             <li className='nav-unselected'><a onClick={this.signOut.bind(this)}>Sign out</a></li>
           </ul>
           <div id='child-component-container'>
-            {myComponent}
             {this.renderComponent()}
           </div>
         </div>
       );
     }
-  }
 }
 
 export default App;

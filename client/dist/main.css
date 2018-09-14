@@ -1,8 +1,196 @@
 body {
   background: #00b7e4;
+  background-image: url('img/apple-bright-carrots.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*background-attachment: scroll;*/
   font-family: Amaranth, sans-serif;
+  font-size: 18px;
   color: white;
   text-align: center;
+}
+
+/********************
+Default Header Styles
+********************/
+
+h2 {
+  padding-top: 15px;
+}
+
+h3, h4, p {
+  color: #fff;
+}
+
+p {
+  padding-bottom: 15px;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.edit-container h3 {
+  color: #333647;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.selection-span {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.nav-logo {
+  font-size: 56px;
+  margin: 0;
+}
+
+#steps-container h2 {
+  color: #333647;
+}
+
+.assistant-welcome {
+  margin-bottom: 0;
+}
+
+.assistant-tagline {
+  margin-top: 5px;
+}
+
+/*.assistant-welcome {
+  color: #94ddf1;
+}*/
+
+/*.tagline-span {
+  color: #00b7e4;
+}*/
+
+/********************
+Link Styles
+********************/
+
+.steps-exit-link {
+  text-decoration: underline;
+}
+
+/********************
+Button Styles
+********************/
+
+input {
+  background-color: #fcfeff;
+  border: none;
+  border-radius: 5px;
+  color: #94ddf1;
+  padding: 5px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+button,
+.submit-button,
+#submit-recipe-button,
+.assistant-selected {
+    background-color: #fcfeff;
+    border: none;
+    border-radius: 5px;
+    color: #8c92ac;
+    padding: 5px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+button:hover {
+  background-color: #94ddf1;
+  color: white;
+}
+
+.submit-button {
+  margin-right: 150px;
+}
+
+.submit-button:hover {
+  background-color: #94ddf1;
+  color: white;
+}
+
+#submit-recipe-button {
+  margin-top: 50px;
+  margin-right: 125px;
+}
+
+#submit-recipe-button:hover {
+  background-color: #94ddf1;
+  color: white;
+}
+
+.recipe-edit-button {
+  margin-bottom: 30px;
+}
+
+.recipe-edit-button:hover {
+  background-color: #94ddf1;
+  color: white;
+}
+
+
+.steps-button {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.steps-button:hover {
+  background-color: #94ddf1;
+  color: white;
+}
+
+.steps-button-container {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.undo-steps-button {
+  margin-bottom: 30px;
+}
+
+.undo-steps-button:hover {
+  background-color: #94ddf1;
+  color: white;
+}
+
+.assistant-button {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.assistant-button:hover {
+  background-color: #94ddf1;
+  color: white;
+}
+
+.assistant-unselected {
+  background-color: #94ddf1;
+  border: none;
+  border-radius: 5px;
+  color: #fcfeff;
+  padding: 5px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.assistant-selected:hover {
+  background-color: #94ddf1;
+  color: white;
+}
+
+.assistant-selected,
+.assistant-unselected {
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 /********************
@@ -10,6 +198,7 @@ Signin Styles
 ********************/
 
 #signin-container {
+  padding-top: 2.5%;
   margin: 15%;
 }
 
@@ -69,13 +258,15 @@ Selection Styles
 
 .selection-recipe {
   padding-bottom: 5px;
-  border: solid;
+  /*border: solid;*/
   border-radius: 5px;
-  background: #cdeff7;
+  background: #8c92ac;
+  background-color: rgb(140,146,172, 0.8);
   margin: auto;
   margin-top: 10px;
   margin-bottom: 10px;
-  width: 50%;
+  width: 30%;
+  height: 50%;
   text-align: center;
 }
 
@@ -83,9 +274,15 @@ span {
   color: #52cbea;
 }
 
+.selection-span {
+  color: #fcfeff;
+}
+
 .selection-recipe-name {
   margin-top: 0%;
   margin-bottom: 0%;
+  color: #333647;
+  font-size: 24px;
 }
 
 .selection-recipe-name:hover {
@@ -97,33 +294,140 @@ Add Recipe Styles
 ********************/
 
 #add-recipe-container {
+  display: flex;
+  justify-content: space-around;
   margin: auto;
-  border: solid;
+  /*border: solid;*/
   border-radius: 5px;
-  border-color: #94ddf1;
+  /*border-color: #fcfeff;*/
+  color: #333647;
   width: 50%;
-  background: #cdeff7;
+  background: #8c92ac;
+  background-color: rgb(140,146,172, 0.8);
 }
 
 .add-recipe-form {
   padding-top: 30px;
   padding-bottom: 30px;
-  text-align: left;
+  text-align: right;
+  min-width: 0;
 }
 
 .add-recipe-input {
-  padding-left: 30px;
+  padding-left: 100px;
 }
 
+.add-recipe-text {
+  margin-right: 150px;
+}
 
+.add-recipe-preview {
+  padding-top: 30px;
+  padding-right: 30px;
+  text-align: left;
+  width: 200px;
+}
 
+.add-recipe-ingredients {
+  padding-top: 15px;
+}
 
+.add-recipe-steps {
+  padding-top: 15px;
+}
 
+/********************
+Recipe Styles
+********************/
 
+#recipe-container {
+  margin: auto;
+  margin-top: 10px;
+  /*border: solid;*/
+  border-radius: 5px;
+  /*border-color: #fcfeff;*/
+  color: #00b7e4;
+  width: 40%;
+  background: #8c92ac;
+  background-color: rgb(140,146,172, 0.8);
+}
 
+#recipe-container h3 {
+  color: #333647;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 
+#recipe-container p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 
+#recipe-title {
+  padding-top: 30px;
+  color: #333647;
+}
 
+/********************
+Steps Styles
+********************/
+
+#steps-container {
+  margin: auto;
+  margin-top: 10px;
+  /*border: solid;*/
+  border-radius: 5px;
+  /*border-color: #fcfeff;*/
+  color: #fcfeff;
+  width: 30%;
+  height: 75%;
+  background: #8c92ac;
+  background-color: rgb(140,146,172, 0.8);
+}
+
+/********************
+Edit Styles
+********************/
+
+.edit-container {
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  /*border: solid;*/
+  border-radius: 5px;
+  /*border-color: #fcfeff;*/
+  color: #00b7e4;
+  width: 30%;
+  background: #8c92ac;
+  background-color: rgb(140,146,172, 0.8);
+}
+
+#recipe-name {
+  margin-top: 30px;
+}
+
+#submit-changes,
+#cancel-changes,
+#delete-recipe {
+  margin-top: 15px;
+}
+
+#delete-recipe {
+  margin-bottom: 30px;
+}
+
+textarea {
+  margin: auto;
+  margin-top: 10px;
+  /*border: solid;*/
+  border-radius: 5px;
+  border-color: #fcfeff;
+  color: #94ddf1;
+  width: 40%;
+  height: 50px;
+  background: #fcfeff;
+  font-size: 16px;
+}
 
 
 
