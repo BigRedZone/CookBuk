@@ -126,7 +126,7 @@ class App extends React.Component {
       }
       return (
         <div>
-          <h2>CookBük</h2>
+          <h2 className="nav-logo" onClick={() => this.changeView('home')}>CookBük</h2>
           <ul id='nav-menu'>
             <li className={this.state.view === 'home' ? 'nav-selected' : 'nav-unselected'}><a onClick={() => this.changeView('home')}>Home</a></li>
             <li className={this.state.view === 'add' ? 'nav-selected' : 'nav-unselected'}><a onClick={() => this.changeView('add')}>Create</a></li>
