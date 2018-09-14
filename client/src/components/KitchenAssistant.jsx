@@ -8,7 +8,7 @@ const Assistant = new Artyom();
 export default class KitchenAssistant extends React.Component {
   constructor(props, context) {
     super(props, context);
-    console.log(props);
+    console.log('KITCHEN ASSISTANT PROPS:', props);
     // Add `this` context to the handler functions
     this.startAssistant = this.startAssistant.bind(this);
     this.stopAssistant = this.stopAssistant.bind(this);

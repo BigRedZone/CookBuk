@@ -71,6 +71,16 @@ Link Styles
   text-decoration: underline;
 }
 
+#delete-recipe-link {
+  text-decoration: underline;
+  color: #fcfeff;
+}
+
+.delete-recipe {
+  margin-top: 15px;
+  padding-bottom: 15px;
+}
+
 /********************
 Button Styles
 ********************/
