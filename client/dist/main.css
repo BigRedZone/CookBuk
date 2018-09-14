@@ -28,6 +28,12 @@ p {
   font-family: 'Titillium Web', sans-serif;
 }
 
+.edit-container h3 {
+  color: #333647;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 .selection-span {
   font-family: 'Titillium Web', sans-serif;
 }
@@ -35,6 +41,18 @@ p {
 .nav-logo {
   font-size: 56px;
   margin: 0;
+}
+
+#steps-container h2 {
+  color: #333647;
+}
+
+.assistant-welcome {
+  margin-bottom: 0;
+}
+
+.assistant-tagline {
+  margin-top: 5px;
 }
 
 /*.assistant-welcome {
@@ -109,7 +127,7 @@ button:hover {
 }
 
 .recipe-edit-button {
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 .recipe-edit-button:hover {
@@ -243,7 +261,7 @@ Selection Styles
   /*border: solid;*/
   border-radius: 5px;
   background: #8c92ac;
-  /*background-color: rgba(0, 183, 228, 0.5);*/
+  background-color: rgb(140,146,172, 0.8);
   margin: auto;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -282,15 +300,17 @@ Add Recipe Styles
   /*border: solid;*/
   border-radius: 5px;
   /*border-color: #fcfeff;*/
-  color: #fcfeff;
+  color: #333647;
   width: 50%;
   background: #8c92ac;
+  background-color: rgb(140,146,172, 0.8);
 }
 
 .add-recipe-form {
   padding-top: 30px;
   padding-bottom: 30px;
   text-align: right;
+  min-width: 0;
 }
 
 .add-recipe-input {
@@ -305,6 +325,7 @@ Add Recipe Styles
   padding-top: 30px;
   padding-right: 30px;
   text-align: left;
+  width: 200px;
 }
 
 .add-recipe-ingredients {
@@ -328,10 +349,18 @@ Recipe Styles
   color: #00b7e4;
   width: 40%;
   background: #8c92ac;
+  background-color: rgb(140,146,172, 0.8);
 }
 
 #recipe-container h3 {
   color: #333647;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#recipe-container p {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 #recipe-title {
@@ -353,6 +382,7 @@ Steps Styles
   width: 30%;
   height: 75%;
   background: #8c92ac;
+  background-color: rgb(140,146,172, 0.8);
 }
 
 /********************
@@ -368,13 +398,17 @@ Edit Styles
   color: #00b7e4;
   width: 40%;
   background: #8c92ac;
+  background-color: rgb(140,146,172, 0.8);
 }
 
-#recipe-name,
+#recipe-name {
+  margin-top: 30px;
+}
+
 #submit-changes,
 #cancel-changes,
 #delete-recipe {
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 #delete-recipe {
@@ -389,6 +423,7 @@ textarea {
   border-color: #fcfeff;
   color: #94ddf1;
   width: 40%;
+  height: 50px;
   background: #fcfeff;
   font-size: 16px;
 }

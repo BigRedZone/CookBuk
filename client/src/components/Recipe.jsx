@@ -42,7 +42,7 @@ class Recipe extends React.Component {
           <div>
             <h4>Recipe Overview</h4>
             <h3>This Recipe Includes...</h3>
-            <p>{this.props.recipe.ingredients}</p>
+            <p>{this.props.recipe.ingredients.join(', ')}</p>
             <h3>Prep Time</h3>
             <p>{this.props.recipe.prepTime}</p>
             <h3>Cook Time</h3>
