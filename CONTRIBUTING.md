@@ -14,7 +14,7 @@
   - Remove...
   - Test...
 
-4. When you've finished with your fix or feature, Rebase the master branch with the feature branch. Push it to the origin master and submit a [pull request][]
+4. When you've finished with your fix or feature, Rebase the master branch with the feature branch. Push it to the origin master and submit a pull request
    directly to master. Include a description of your changes.
 
 5. Your pull request will be reviewed by two other maintainers. The point of code
@@ -52,7 +52,7 @@ git checkout -b `your-branch-name`
 
 Prefix each commit like so
   - Add a new feature
-  - Fix inconsistent tests [Fixes #0]
+  - Fix inconsistent tests
   - Refactor...
   - Remove...
   - Test...
@@ -136,11 +136,11 @@ Thanks for contributing!
 1. Uphold the current code standard:
     - Keep your code [DRY][].
     - Apply the [boy scout rule][].
-    - Follow [STYLE-GUIDE.md](STYLE-GUIDE.md)
-2. Run the [tests][] before submitting a pull request.
+    - Follow [STYLE-GUIDE.md][style guide]
+2. Run the tests before submitting a pull request.
 3. Tests are very, very important. Submit tests if your pull request contains
    new, testable behavior.
-4. Your pull request is comprised of a single [squashed](Squash) commit.
+4. Your pull request is comprised of a single [squashed][squash] commit.
 
 ## Checklist:
 
