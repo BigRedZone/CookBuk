@@ -8,8 +8,8 @@ class EditDeleteRecipe extends React.Component {
     this.state = {
       username: this.props.username,
       name: this.props.recipe.name,
-      ingredients: this.props.recipe.ingredients,
-      steps: this.props.recipe.steps,
+      ingredients: this.props.recipe.ingredients.join(','),
+      steps: this.props.recipe.steps.join(','),
       cookTime: this.props.recipe.cookTime,
       prepTime: this.props.recipe.prepTime,
       servings: this.props.recipe.servings
@@ -49,8 +49,6 @@ class EditDeleteRecipe extends React.Component {
       data: {name: targetRecipe, username: username}
     })
     .done((data) => {
-      // console.log('DELETE request success')
-      // context.props.setRecipes(JSON.parse(data))
       context.props.changeAppView('')
     })
     .fail(() => {
@@ -63,11 +61,11 @@ class EditDeleteRecipe extends React.Component {
     if (confirm('Are you sure you want to delete this recipe?')) {
       this.deleteRecipe(this.props.recipe.name, this.state.username);
       console.log(`Deleted ${this.props.recipe.name}!`);
-      // context.props.changeView('login');
     }
   }
   submitClickHandler() {
     var context = this
+    console.log(this.state);
     this.setState({
       ingredients: this.state.ingredients.split(','),
       steps: this.state.steps.split(',')
@@ -75,8 +73,6 @@ class EditDeleteRecipe extends React.Component {
       console.log(context.state);
       if (this.state.name) {
         this.updateRecipe(this.props.recipe.name, this.state);
-        // this.props.selectRecipe(this.props.recipe);
-        // this.props.changeView('')
       } else {
         alert('Must fill out name form!')
       }
@@ -135,7 +131,7 @@ class EditDeleteRecipe extends React.Component {
           <div>
             <h4>Recipe Overview</h4>
             <h3>This Recipe Includes...</h3>
-            <textarea type="text" id="ingredientsInput" rows="10" cols="35" onChange={(e) => this.ingredientsHandler(e.target.value)} value={this.state.ingredients.toString()}/>
+            <textarea type="text" id="ingredientsInput" rows="10" cols="35" onChange={(e) => this.ingredientsHandler(e.target.value)} value={this.state.ingredients}/>
             <h3>Prep Time</h3>
             <input type="text" id="prep-time-input" onChange={(e) => this.prepTimeHandler(e.target.value)} value={this.state.prepTime}/>
             <h3>Cook Time</h3>
@@ -143,7 +139,7 @@ class EditDeleteRecipe extends React.Component {
             <h3>Servings</h3>
             <input type="text" id="servings-input" onChange={(e) => this.servingsHandler(e.target.value)} value={this.state.servings}/>
             <h3>Steps</h3>
-            <textarea type="text" rows="10" cols="35" id="steps-input" onChange={(e) => this.stepsHandler(e.target.value)} value={this.state.steps.toString()}/>
+            <textarea type="text" rows="10" cols="35" id="steps-input" onChange={(e) => this.stepsHandler(e.target.value)} value={this.state.steps}/>
           </div>
           <div>
             <button id="submit-changes" onClick={() => this.submitClickHandler()}>Submit Changes</button>
