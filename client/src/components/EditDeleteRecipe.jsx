@@ -67,13 +67,20 @@ class EditDeleteRecipe extends React.Component {
     }
   }
   submitClickHandler() {
-    if (this.state.name) {
-      this.updateRecipe(this.props.recipe.name, this.state);
-      // this.props.selectRecipe(this.props.recipe);
-      // this.props.changeView('')
-    } else {
-      alert('Must fill out name form!')
-    }
+    var context = this
+    this.setState({
+      ingredients: this.state.ingredients.split(','),
+      steps: this.state.steps.split(',')
+    }, () => {
+      console.log(context.state);
+      if (this.state.name) {
+        this.updateRecipe(this.props.recipe.name, this.state);
+        // this.props.selectRecipe(this.props.recipe);
+        // this.props.changeView('')
+      } else {
+        alert('Must fill out name form!')
+      }
+    })
   }
 
   nameHandler(event) {
@@ -128,7 +135,7 @@ class EditDeleteRecipe extends React.Component {
           <div>
             <h4>Recipe Overview</h4>
             <h3>This Recipe Includes...</h3>
-            <textarea type="text" id="ingredientsInput" rows="10" cols="35" onChange={(e) => this.ingredientsHandler(e.target.value)} value={this.state.ingredients}/>
+            <textarea type="text" id="ingredientsInput" rows="10" cols="35" onChange={(e) => this.ingredientsHandler(e.target.value)} value={this.state.ingredients.toString()}/>
             <h3>Prep Time</h3>
             <input type="text" id="prep-time-input" onChange={(e) => this.prepTimeHandler(e.target.value)} value={this.state.prepTime}/>
             <h3>Cook Time</h3>
@@ -136,7 +143,7 @@ class EditDeleteRecipe extends React.Component {
             <h3>Servings</h3>
             <input type="text" id="servings-input" onChange={(e) => this.servingsHandler(e.target.value)} value={this.state.servings}/>
             <h3>Steps</h3>
-            <textarea type="text" rows="10" cols="35" id="steps-input" onChange={(e) => this.stepsHandler(e.target.value)} value={this.state.steps}/>
+            <textarea type="text" rows="10" cols="35" id="steps-input" onChange={(e) => this.stepsHandler(e.target.value)} value={this.state.steps.toString()}/>
           </div>
           <div>
             <button id="submit-changes" onClick={() => this.submitClickHandler()}>Submit Changes</button>
