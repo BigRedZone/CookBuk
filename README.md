@@ -1,6 +1,5 @@
 # CookBük
-
-> Recipe &amp; Pantry Inventory Application
+  __A recipe storage and assistant application__
 
 ## Team Big Red
 
@@ -20,7 +19,7 @@
 
 ## Usage
 
-> Getting Started
+### Getting Started
 
 * 1. Go to the assigned server's url.
 * 2. Once there you'll be prompted to sign in with a Google account before you can access anything else
@@ -30,7 +29,7 @@
     - Create a new recipe
     - Log out
 
-> Adding A New Recipe
+### Adding A New Recipe
 
 * 1. From the home page click on the create button
 * 2. On this page you may fill out whichever fields you please, but the name of the recipe is a required field!
@@ -40,7 +39,7 @@
     - This will also bring you back to the homepage showing all of your recipes with the most recently added one at the bottom
 
 
-> Selecting A Recipe
+### Selecting A Recipe
 
 * 1. From the home page click on the title of a recipe
 * 2. This will bring you to the overview of the selected recipe, which will show the following information:
@@ -51,7 +50,7 @@
     - The amount of servings the recipe aims to provide
 * 3. Within this page you are also given access to either start the selected recipe or edit it
 
-> Editing A Recipe
+### Editing A Recipe
 
 * 1. From the recipe overview page, click on Edit
 * 2. This will bring you to the edit page, with the following fields
@@ -65,7 +64,7 @@
     - The steps involved in making this recipe
         - Each step should be separated by a comma
 
-> Starting A Recipe
+### Starting A Recipe
 
 * 1. From the recipe overview page, click on Start
 * 2. This will bring you to the beginning of the steps page
@@ -80,7 +79,7 @@
 
 ## Requirements
 
-> Dependencies:
+### Dependencies:
 
 * artyom.js: 1.0.6
 * axios: 0.18.0
@@ -92,7 +91,7 @@
 * react-dom: 16.4.2
 * request: 2.88.0
 
-> Dev Dependencies:
+### Dev Dependencies:
 
 * babel/core: 7.0.0,
 * babel/preset-env: 7.0.0,
@@ -116,7 +115,7 @@ npm install
 
 ### Roadmap
 
-View the project roadmap [here](https://waffle.io/BigRedZone/CookBuk)
+View the project roadmap [here](https://waffle.io/BigRedZone/CookBuk) and [here] (https://drive.google.com/file/d/14bqOGESN1answPR3PCp6_TXR-Bo6dwyK/view?usp=sharing)
 
 
 ## Contributing
