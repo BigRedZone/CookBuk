@@ -1,5 +1,6 @@
 import React from 'react';
-import KitchenAssistant from './KitchenAssistant.jsx'
+import KitchenAssistant from './KitchenAssistant.jsx';
+import Commands from './Commands.jsx';
 
 class Steps extends React.Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class Steps extends React.Component {
       prevClicked: false,
       firstClicked: false,
       lastClicked: false,
-      currentStep: 0
+      currentStep: 0,
+      kitchenAssistant: false
     }
     console.log('this is props', props);
     this.clickNext = this.clickNext.bind(this);
@@ -17,6 +19,9 @@ class Steps extends React.Component {
     this.clickFirst = this.clickFirst.bind(this);
     this.clickLast = this.clickLast.bind(this);
     this.clickExit = this.clickExit.bind(this);
+    this.enableCommands = this.enableCommands.bind(this);
+    this.disableCommands = this.disableCommands.bind(this);
+    this.renderCommands = this.renderCommands.bind(this);
   }
 
   clickNext() {
@@ -60,6 +65,28 @@ class Steps extends React.Component {
     this.props.changeView('overview');
   }
 
+  enableCommands() {
+    if (!this.state.kitchenAssistant) {
+      this.setState({
+        kitchenAssistant: true
+      })
+    }
+  }
+
+  disableCommands() {
+    if (this.state.kitchenAssistant) {
+      this.setState({
+        kitchenAssistant: false
+      })
+    }
+  }
+
+  renderCommands() {
+    if (this.state.kitchenAssistant) {
+      return <Commands/>;
+    }
+    return;
+  }
   render() {
     return (
       <div>
@@ -71,7 +98,10 @@ class Steps extends React.Component {
           clickLast = {this.clickLast}
           clickExit = {this.clickExit}
           currentStep = {this.state.currentStep}
+          enableCommands = {this.enableCommands}
+          disableCommands = {this.disableCommands}
         />
+        {this.renderCommands()}
         <h1>{this.props.recipe.name}</h1>
         <div id='steps-container'>
           <h2>Step {this.state.currentStep + 1}:</h2>

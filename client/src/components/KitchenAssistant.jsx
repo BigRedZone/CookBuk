@@ -29,6 +29,7 @@ export default class KitchenAssistant extends React.Component {
 
   startAssistant() {
     let _this = this;
+    this.props.enableCommands();
 
     console.log("Artyom succesfully started !", _this);
 
@@ -54,6 +55,7 @@ export default class KitchenAssistant extends React.Component {
 
   stopAssistant() {
     let _this = this;
+    this.props.disableCommands();
 
     Assistant.fatality().then(() => {
       console.log("Assistant has been succesfully stopped");
