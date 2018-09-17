@@ -101,12 +101,13 @@ class App extends React.Component {
   }
 
   signOut() {
+    var context = this;
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
       console.log('User signed out.');
+      context.handleSignOut();
+      context.changeView('login');
     });
-    this.handleSignOut();
-    this.changeView('login');
   }
 
   renderComponent() {

@@ -16,13 +16,13 @@ export default class ArtyomCommandsManager {
         }
       },
       {
-        indexes: ["How long is prep time?"],
+        indexes: ["What is the prep time?"],
         action: () => {
           Artyom.say(`Prep time is ${recipeInfo.recipe.prepTime}`);
         }
       },
       {
-        indexes: ["How long is cook time?"],
+        indexes: ["What is the cook time?"],
         action: () => {
           Artyom.say(`Cook time is ${recipeInfo.recipe.cookTime}`);
         }
@@ -36,7 +36,7 @@ export default class ArtyomCommandsManager {
       {
         indexes: ['lets Begin'],
         action: () => {
-          console.log('sup dude');
+          Artyom.say(`Step ${recipeInfo.currentStep + 1 + ', ' + recipeInfo.recipe.steps[0]}`);
         }
       },
       {
@@ -64,7 +64,7 @@ export default class ArtyomCommandsManager {
         }
       },
       {
-        indexes: ['get me out of here'],
+        indexes: ['Return to recipe overview'],
         action: () => {
           recipeInfo.clickExit();
         }

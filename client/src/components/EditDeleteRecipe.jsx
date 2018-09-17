@@ -144,7 +144,7 @@ class EditDeleteRecipe extends React.Component {
           <div>
             <button id="cancel-changes" onClick={() => this.handleCancelClick()}>Cancel Changes</button>
           </div>
-          <button id="delete-recipe" onClick={() => this.deleteHandler()}>Delete Recipe</button>
+          <div className='delete-recipe'><a id="delete-recipe-link" onClick={() => this.deleteHandler()}>Delete Recipe</a></div>
         </div>
       </div>
     )

@@ -29,6 +29,7 @@ class Steps extends React.Component {
         currentStep: this.state.currentStep + 1
       });
     }
+    console.log('CURRENT STEP:', this.state.currentStep + 2);
   }
 
   clickPrev() {
@@ -69,6 +70,7 @@ class Steps extends React.Component {
           clickFirst = {this.clickFirst}
           clickLast = {this.clickLast}
           clickExit = {this.clickExit}
+          currentStep = {this.state.currentStep}
         />
         <h1>{this.props.recipe.name}</h1>
         <div id='steps-container'>
