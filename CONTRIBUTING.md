@@ -140,7 +140,7 @@ Thanks for contributing!
 2. Run the [tests][] before submitting a pull request.
 3. Tests are very, very important. Submit tests if your pull request contains
    new, testable behavior.
-4. Your pull request is comprised of a single ([squashed](Squash)) commit.
+4. Your pull request is comprised of a single [squashed](Squash) commit.
 
 ## Checklist:
 
