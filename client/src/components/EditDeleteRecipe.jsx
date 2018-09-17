@@ -64,13 +64,11 @@ class EditDeleteRecipe extends React.Component {
     }
   }
   submitClickHandler() {
-    var context = this
-    console.log(this.state);
     this.setState({
       ingredients: this.state.ingredients.split(','),
       steps: this.state.steps.split(',')
     }, () => {
-      console.log(context.state);
+      console.log('Edited recipe: ', this.state);
       if (this.state.name) {
         this.updateRecipe(this.props.recipe.name, this.state);
       } else {
