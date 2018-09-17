@@ -136,7 +136,7 @@ Thanks for contributing!
 1. Uphold the current code standard:
     - Keep your code [DRY][].
     - Apply the [boy scout rule][].
-    - Follow [STYLE-GUIDE.md][style guide]
+    - Follow [airbnb's style guide][style guide]
 2. Run the tests before submitting a pull request.
 3. Tests are very, very important. Submit tests if your pull request contains
    new, testable behavior.
@@ -161,7 +161,7 @@ no problem getting your changes merged in.
 
 
 <!-- Links -->
-[style guide]: https://github.com/BigRedZone/style-guide
+[style guide]: https://github.com/airbnb/javascript/blob/master/README.md
 [curriculum workflow diagram]: http://i.imgur.com/p0e4tQK.png
 [cons of merge]: https://f.cloud.github.com/assets/1577682/1458274/1391ac28-435e-11e3-88b6-69c85029c978.png
 [tools workflow diagram]: http://i.imgur.com/kzlrDj7.png
