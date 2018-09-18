@@ -10,11 +10,12 @@
 ## Table of Contents
 
 1. [Requirements](#requirements)
+
 2. [Getting Started](#getting-started)
 3. [Usage](#usage)
-  - [Client Side] (#client-side)
-  - [Server Side] (#server-side)
-  - [Database Side] (#database)    
+  - [Client Side](#client-side)
+  - [Server Side](#server-side)
+  - [Database Side](#database)    
 3. [Development](#development)
   - [Tasks](#tasks)
 4. [Team](#team)
@@ -166,18 +167,20 @@ What is exported out of this file is only the model. All querying is done server
 
 ## Development
 
-1. Artyom dictates all steps for selected recipe, not just first step.
-2. Friends feature 
+
+1. Friends feature 
     -Request and remove friends
     -Share Recipes amongst friends
     -Chat functionality 
+2. Hands-Free feature
+    -Incorporate Voice Commands for entire application
 3. Inventory management of ingredients remaining in pantry
     -Inform user if recipe is able to be made
     -Inform user when stock of ingredient is low
 4. Make the app mobile-friendly 
     - Progressive Web App
     - React Native
-5. Add gesture recognition
+5. Add gesture recognition for steps
 6. Add picture saving functionality to each recipe
 7. Dietary Information
     - Recipes includes calories, protein, sodium, etc...

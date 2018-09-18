@@ -2,6 +2,7 @@
 export default class ArtyomCommandsManager {
   constructor(ArtyomInstance) {
     this.artyom = ArtyomInstance;
+    this.counter = 0;
   }
 
   loadCommands(recipeInfo) {
@@ -34,32 +35,40 @@ export default class ArtyomCommandsManager {
       {
         indexes: ['lets begin'],
         action: () => {
-          Artyom.say(`Step ${recipeInfo.currentStep + 1 + ', ' + recipeInfo.recipe.steps[0]}`);
-        },
+          Artyom.say(`Step ${this.counter + 1 + ', ' + recipeInfo.recipe.steps[this.counter]}`);
+        }
       },
       {
         indexes: ['what\'s next'],
         action: () => {
           recipeInfo.clickNext();
-        },
+          this.counter++;
+          Artyom.say(`Step ${this.counter + 1 + ', ' + recipeInfo.recipe.steps[this.counter]}`)
+        }
       },
       {
         indexes: ['what\'s the previous step'],
         action: () => {
           recipeInfo.clickPrev();
-        },
+          this.counter--;
+          Artyom.say(`Step ${this.counter + 1 + ', ' + recipeInfo.recipe.steps[this.counter]}`)
+        }
       },
       {
         indexes: ['what\'s the first step'],
         action: () => {
           recipeInfo.clickFirst();
-        },
+          this.counter = 0;
+          Artyom.say(`Step ${this.counter + 1 + ', ' + recipeInfo.recipe.steps[this.counter]}`)
+        }
       },
       {
         indexes: ['take me to the last step'],
         action: () => {
           recipeInfo.clickLast();
-        },
+          this.counter = recipeInfo.recipe.steps.length - 1;
+          Artyom.say(`Step ${this.counter + 1 + ', ' + recipeInfo.recipe.steps[this.counter]}`)
+        }
       },
       {
         indexes: ['return to recipe overview'],
