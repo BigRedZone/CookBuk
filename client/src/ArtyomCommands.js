@@ -10,31 +10,31 @@ export default class ArtyomCommandsManager {
     console.log(recipeInfo.recipe)
     return Artyom.addCommands([
       {
-        indexes: ["What ingredients do I need?"],
+        indexes: ["what ingredients do I need?"],
         action: () => {
           Artyom.say(`You need ${recipeInfo.recipe.ingredients}`);
         }
       },
       {
-        indexes: ["What is the prep time?"],
+        indexes: ["what is the prep time?"],
         action: () => {
           Artyom.say(`Prep time is ${recipeInfo.recipe.prepTime}`);
         }
       },
       {
-        indexes: ["What is the cook time?"],
+        indexes: ["what is the cook time?"],
         action: () => {
           Artyom.say(`Cook time is ${recipeInfo.recipe.cookTime}`);
         }
       },
       {
-        indexes: ["Thank you"],
+        indexes: ["thank you"],
         action: () => {
           Artyom.say(`You're welcome`);
         },
       },
       {
-        indexes: ['lets Begin'],
+        indexes: ['lets begin'],
         action: () => {
           Artyom.say(`Step ${recipeInfo.currentStep + 1 + ', ' + recipeInfo.recipe.steps[0]}`);
         }
@@ -64,7 +64,7 @@ export default class ArtyomCommandsManager {
         }
       },
       {
-        indexes: ['Return to recipe overview'],
+        indexes: ['return to recipe overview'],
         action: () => {
           recipeInfo.clickExit();
         }

@@ -8,8 +8,8 @@ class EditDeleteRecipe extends React.Component {
     this.state = {
       username: this.props.username,
       name: this.props.recipe.name,
-      ingredients: this.props.recipe.ingredients,
-      steps: this.props.recipe.steps,
+      ingredients: this.props.recipe.ingredients.join(','),
+      steps: this.props.recipe.steps.join(','),
       cookTime: this.props.recipe.cookTime,
       prepTime: this.props.recipe.prepTime,
       servings: this.props.recipe.servings
@@ -49,8 +49,6 @@ class EditDeleteRecipe extends React.Component {
       data: {name: targetRecipe, username: username}
     })
     .done((data) => {
-      // console.log('DELETE request success')
-      // context.props.setRecipes(JSON.parse(data))
       context.props.changeAppView('')
     })
     .fail(() => {
@@ -63,17 +61,20 @@ class EditDeleteRecipe extends React.Component {
     if (confirm('Are you sure you want to delete this recipe?')) {
       this.deleteRecipe(this.props.recipe.name, this.state.username);
       console.log(`Deleted ${this.props.recipe.name}!`);
-      // context.props.changeView('login');
     }
   }
   submitClickHandler() {
-    if (this.state.name) {
-      this.updateRecipe(this.props.recipe.name, this.state);
-      // this.props.selectRecipe(this.props.recipe);
-      // this.props.changeView('')
-    } else {
-      alert('Must fill out name form!')
-    }
+    this.setState({
+      ingredients: this.state.ingredients.split(','),
+      steps: this.state.steps.split(',')
+    }, () => {
+      console.log('Edited recipe: ', this.state);
+      if (this.state.name) {
+        this.updateRecipe(this.props.recipe.name, this.state);
+      } else {
+        alert('Must fill out name form!')
+      }
+    })
   }
 
   nameHandler(event) {
